@@ -1,7 +1,7 @@
 .PHONY: all clean
 
 INDIR ?= ./src
-OUTDIR ?= ./vguide
+OUTDIR ?= ./vstyle
 
 $(OUTDIR)/%.html: $(INDIR)/%.md
 	alectryon --frontend md --backend webpage $< -o $@
