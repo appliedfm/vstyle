@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" class="alectryon-standalone" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.16: http://docutils.sourceforge.net/" />
+<title>Project structure</title>
+<link rel="stylesheet" href="alectryon.css" type="text/css" />
+<link rel="stylesheet" href="docutils_basic.css" type="text/css" />
+<link rel="stylesheet" href="pygments.css" type="text/css" />
+<script type="text/javascript" src="alectryon.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/IBM-type/0.5.4/css/ibm-type.min.css" integrity="sha512-sky5cf9Ts6FY1kstGOBHSybfKqdHR41M0Ldb0BjNiv3ifltoQIsg0zIaQ+wwdwgQ0w9vKFW7Js50lxH9vqNSSw==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/firacode/5.2.0/fira_code.min.css" integrity="sha512-MbysAYimH1hH2xYzkkMHB6MqxBqfP0megxsCLknbYqHVwXTCg9IqHbk+ZP/vnhO8UEW6PaXAkKe2vQ+SWACxxA==" crossorigin="anonymous" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<div class="alectryon-root alectryon-centered"><div class="alectryon-banner">Built with <a href="https://github.com/cpitclaudel/alectryon/">Alectryon</a>, running . Bubbles (<span class="alectryon-bubble"></span>) indicate interactive fragments: hover for details, tap to reveal contents. Use <kbd>Ctrl+↑</kbd> <kbd>Ctrl+↓</kbd> to navigate, <kbd>Ctrl+🖱️</kbd> to focus. On Mac, use <kbd>⌘</kbd> instead of <kbd>Ctrl</kbd>.</div><div class="tex2jax_ignore mathjax_ignore document" id="project-structure">
+<h1 class="title">Project structure</h1>
+
+<p>Part of the <a href="index.html">applied.fm Style Guide for Coq</a>.</p>
+<div class="section" id="principles">
+<h1>Principles</h1>
+<ul class="simple">
+<li>Ease of navigation.</li>
+<li>Ease of maintenance.</li>
+</ul>
+</div>
+<div class="section" id="layout">
+<h1>Layout</h1>
+<p>The following directory structure is recommended::</p>
+<ul class="simple">
+<li><tt class="docutils literal">dep/</tt></li>
+<li><tt class="docutils literal">ext/</tt></li>
+<li><tt class="docutils literal">src/</tt></li>
+<li><tt class="docutils literal">examples/</tt></li>
+<li><tt class="docutils literal">theories/</tt></li>
+<li><tt class="docutils literal">_CoqProject</tt></li>
+<li><tt class="docutils literal"><span class="pre">coq-myproject.opam</span></tt></li>
+<li><tt class="docutils literal">LICENSE.md</tt></li>
+<li><tt class="docutils literal">Makefile</tt></li>
+<li><tt class="docutils literal">README.md</tt></li>
+</ul>
+<div class="section" id="dep">
+<h2><tt class="docutils literal">dep</tt></h2>
+<p>Does not apply to all projects.</p>
+<p>Contains Git submodules for dependencies that cannot be found in opam, either because they generally do not have opam packages or because a bleeding-edge version is required that has not been released yet.</p>
+<p>This convention achieves the following:</p>
+<ul class="simple">
+<li>It gives sensible results when used with <tt class="docutils literal"><span class="pre">-Q</span></tt> as in <tt class="docutils literal"><span class="pre">-Q</span> dep/MyDep MyDep</tt></li>
+</ul>
+</div>
+<div class="section" id="ext">
+<h2><tt class="docutils literal">ext</tt></h2>
+<p>Does not apply to all projects.</p>
+<p>Contains definitions that &quot;extend&quot; dependencies with additional instances, lemmas, etc.</p>
+<p>The directory contains subdirectories whose names end in <tt class="docutils literal">Ext</tt>. For example, suppose one requires a lemma about lists that is not present in the standard Coq library. In this case, the lemma would be stored somewhere within <tt class="docutils literal">ext/CoqExt/</tt>.</p>
+<p>This convention achieves the following:</p>
+<ul class="simple">
+<li>It gives sensible results when used with <tt class="docutils literal"><span class="pre">-Q</span></tt> as in <tt class="docutils literal"><span class="pre">-Q</span> ext/MyDepExt MyDepExt</tt></li>
+<li>It clearly identifies components that should be upstreamed.</li>
+</ul>
+</div>
+<div class="section" id="src">
+<h2><tt class="docutils literal">src</tt></h2>
+<p>Does not apply to all projects.</p>
+<p>Contains non-Coq source code. Many projects include source in languages such as OCaml, C, JavaScript, Haskell, etc. These source files should be stored here.</p>
+<p>This convention achieves the following:</p>
+<ul class="simple">
+<li>It clearly identifies components not written in Coq.</li>
+</ul>
+</div>
+<div class="section" id="examples">
+<h2><tt class="docutils literal">examples</tt></h2>
+<p>Most software projects include examples of one kind or another. These should be stored here.</p>
+<p>This convention achieves the following:</p>
+<ul class="simple">
+<li>It clearly identifies examples as being examples (and not components of the main development).</li>
+<li>It gives sensible results when used with <tt class="docutils literal"><span class="pre">-Q</span></tt> as in <tt class="docutils literal"><span class="pre">-Q</span> examples/ MyProject.Examples</tt></li>
+</ul>
+</div>
+<div class="section" id="theories">
+<h2><tt class="docutils literal">theories</tt></h2>
+<p>This is where the main Coq development is stored.</p>
+<p>This convention achieves the following:</p>
+<ul class="simple">
+<li>It gives sensible results when used with <tt class="docutils literal"><span class="pre">-Q</span></tt> as in <tt class="docutils literal"><span class="pre">-Q</span> theories/ MyProject</tt></li>
+</ul>
+</div>
+<div class="section" id="coqproject">
+<h2><tt class="docutils literal">_CoqProject</tt></h2>
+<p>This file should:</p>
+<ul class="simple">
+<li>Map <tt class="docutils literal">dep</tt>, <tt class="docutils literal">ext</tt>, <tt class="docutils literal">theories</tt>, and <tt class="docutils literal">examples</tt> into the search path.</li>
+<li>Enumerate the files in <tt class="docutils literal">ext</tt>, <tt class="docutils literal">theories</tt>, and <tt class="docutils literal">examples</tt>.</li>
+</ul>
+<p>This convention achieves the following:</p>
+<ul class="simple">
+<li>The generated makefile will build all of the examples.</li>
+<li>CoqIDE, vscode, and others behave as expected.</li>
+</ul>
+</div>
+<div class="section" id="coq-myproject-opam">
+<h2><tt class="docutils literal"><span class="pre">coq-myproject.opam</span></tt></h2>
+<p>Opam is the preferred method of managing dependencies in the Coq ecosystem. Even if your project is not published to the opam repository, the presence of an opam file in your project will be useful to downstream users.</p>
+<p>Your opam file should document your project's dependencies at a minimum. It should also provide build &amp; install operations, particularly if you want to encourage others to build on your work.</p>
+<p>This convention achieves the following:</p>
+<ul class="simple">
+<li><tt class="docutils literal">opam install <span class="pre">--deps-only</span> <span class="pre">./coq-myproject.opam</span></tt> works as expected.</li>
+</ul>
+</div>
+<div class="section" id="license-md">
+<h2><tt class="docutils literal">LICENSE.md</tt></h2>
+<p>Always specify a license. Note that <a class="reference external" href="https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository">GitHub has the ability</a> to recognize certain popular licenses and that they expose this as a search criteria.</p>
+</div>
+<div class="section" id="makefile">
+<h2><tt class="docutils literal">Makefile</tt></h2>
+<p>Responsible for building the project. This includes:</p>
+<ul class="simple">
+<li>Processing any build arguments.</li>
+<li>(Optional) Generating/updating <tt class="docutils literal">_CoqProject</tt>.</li>
+<li>Generating and invoking a sub-makefile derived from <tt class="docutils literal">_CoqProject</tt>.</li>
+</ul>
+<p>This convention achieves the following:</p>
+<ul class="simple">
+<li>It is compatible with opam: the project's opam file should rely on the Makefile to perform the build and installation steps.</li>
+</ul>
+</div>
+<div class="section" id="readme-md">
+<h2><tt class="docutils literal">README.md</tt></h2>
+<p>Always provide a readme.</p>
+</div>
+</div>
+<div class="section" id="testing">
+<h1>Testing</h1>
+<ul class="simple">
+<li>Enable continuous integration.</li>
+</ul>
+</div>
+</div>
+</div></body>
+</html>
