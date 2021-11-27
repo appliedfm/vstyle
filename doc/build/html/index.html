@@ -1,0 +1,254 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Style Guide for Coq &#8212; vstyle  documentation</title>
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Principles" href="principles.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="style-guide-for-coq">
+<h1>Style Guide for Coq<a class="headerlink" href="#style-guide-for-coq" title="Permalink to this headline">¶</a></h1>
+<p>This is a work in progress! We welcome feedback and pull requests. <a class="reference external" href="https://github.com/appliedfm/vstyle">Find us on GitHub</a>.</p>
+<div class="section" id="table-of-contents">
+<h2>Table of Contents<a class="headerlink" href="#table-of-contents" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="principles.html">Principles</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="principles.html#personas">Personas</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="principles.html#curious-person">Curious person</a></li>
+<li class="toctree-l3"><a class="reference internal" href="principles.html#researcher">Researcher</a></li>
+<li class="toctree-l3"><a class="reference internal" href="principles.html#user">User</a></li>
+<li class="toctree-l3"><a class="reference internal" href="principles.html#contributor">Contributor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="principles.html#platform-maintainer">Platform maintainer</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="principles.html#use-cases">Use cases</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="principles.html#browsing-the-code-in-a-browser">Browsing the code (in a browser)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="principles.html#browsing-the-code-in-a-proof-assistant">Browsing the code (in a proof assistant)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="principles.html#isolating-resolving-build-issues">Isolating &amp; resolving build issues</a></li>
+<li class="toctree-l3"><a class="reference internal" href="principles.html#exploring-undocumented-features">Exploring undocumented features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="principles.html#understanding-the-architecture">Understanding the architecture</a></li>
+<li class="toctree-l3"><a class="reference internal" href="principles.html#shipping-new-features">Shipping new features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="principles.html#refactoring">Refactoring</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="principles.html#objectives">Objectives</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="principles.html#find-replace-work-as-expected">Find &amp; replace work as expected</a></li>
+<li class="toctree-l3"><a class="reference internal" href="principles.html#mitigate-bike-shedding">Mitigate bike-shedding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="principles.html#code-is-robust-against-changes-to-the-coq-engine">Code is robust against changes to the Coq engine</a></li>
+<li class="toctree-l3"><a class="reference internal" href="principles.html#code-is-minimally-impacted-by-changes-in-upstream-components">Code is minimally impacted by changes in upstream components</a></li>
+<li class="toctree-l3"><a class="reference internal" href="principles.html#code-changes-have-minimal-impact-on-downstream-users">Code changes have minimal impact on downstream users</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="project_structure.html">Project structure</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="project_structure.html#documentation">Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="project_structure.html#continuous-integration">Continuous Integration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="project_structure.html#dependencies">Dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="project_structure.html#layout">Layout</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="project_structure.html#dep"><code class="docutils literal notranslate"><span class="pre">dep/</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="project_structure.html#doc"><code class="docutils literal notranslate"><span class="pre">doc/</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="project_structure.html#ext"><code class="docutils literal notranslate"><span class="pre">ext/</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="project_structure.html#src"><code class="docutils literal notranslate"><span class="pre">src/</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="project_structure.html#examples"><code class="docutils literal notranslate"><span class="pre">examples/</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="project_structure.html#theories"><code class="docutils literal notranslate"><span class="pre">theories/</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="project_structure.html#coqproject"><code class="docutils literal notranslate"><span class="pre">_CoqProject</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="project_structure.html#coq-myproject-opam"><code class="docutils literal notranslate"><span class="pre">coq-myproject.opam</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="project_structure.html#makefile"><code class="docutils literal notranslate"><span class="pre">Makefile</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="project_structure.html#contributing-md"><code class="docutils literal notranslate"><span class="pre">CONTRIBUTING.md</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="project_structure.html#license-md"><code class="docutils literal notranslate"><span class="pre">LICENSE.md</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="project_structure.html#readme-md"><code class="docutils literal notranslate"><span class="pre">README.md</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="formatting.html">Formatting</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="formatting.html#spaces-tabs">Spaces, tabs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="formatting.html#line-length">Line length</a></li>
+<li class="toctree-l2"><a class="reference internal" href="formatting.html#indentation">Indentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="formatting.html#non-ascii-characters">Non-ASCII characters</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="naming_conventions.html">Naming conventions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="naming_conventions.html#files">Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="naming_conventions.html#modules">Modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="naming_conventions.html#types">Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="naming_conventions.html#predicates">Predicates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="naming_conventions.html#projections">Projections</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="scope_management.html">Scope management</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="scope_management.html#imports-and-exports">Imports and exports</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scope_management.html#local-and-global">Local and global</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scope_management.html#modules">Modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scope_management.html#sections">Sections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scope_management.html#notations">Notations</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="definitions.html">Definitions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="definitions.html#type-inference">Type inference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="definitions.html#definition-example"><code class="docutils literal notranslate"><span class="pre">Definition</span></code>, <code class="docutils literal notranslate"><span class="pre">Example</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="definitions.html#fixpoint-cofixpoint"><code class="docutils literal notranslate"><span class="pre">Fixpoint</span></code>, <code class="docutils literal notranslate"><span class="pre">CoFixpoint</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="definitions.html#lemma-theorem-fact-remark-corollary-proposition-property"><code class="docutils literal notranslate"><span class="pre">Lemma</span></code>, <code class="docutils literal notranslate"><span class="pre">Theorem</span></code>, <code class="docutils literal notranslate"><span class="pre">Fact</span></code>, <code class="docutils literal notranslate"><span class="pre">Remark</span></code>, <code class="docutils literal notranslate"><span class="pre">Corollary</span></code>, <code class="docutils literal notranslate"><span class="pre">Proposition</span></code>, <code class="docutils literal notranslate"><span class="pre">Property</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="definitions.html#attributes">Attributes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="definitions.html#program"><code class="docutils literal notranslate"><span class="pre">Program</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="definitions.html#arguments"><code class="docutils literal notranslate"><span class="pre">Arguments</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="definitions.html#opaque-transparent"><code class="docutils literal notranslate"><span class="pre">Opaque</span></code>, <code class="docutils literal notranslate"><span class="pre">Transparent</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="definitions.html#expressions">Expressions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="definitions.html#let-in"><code class="docutils literal notranslate"><span class="pre">let</span> <span class="pre">...</span> <span class="pre">in</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="definitions.html#if-then-else"><code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">...</span> <span class="pre">then</span> <span class="pre">...</span> <span class="pre">else</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="definitions.html#match-with-end"><code class="docutils literal notranslate"><span class="pre">match</span> <span class="pre">...</span> <span class="pre">with</span> <span class="pre">...</span> <span class="pre">end</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="types.html">Types</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="types.html#sum-types">Sum types</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="types.html#variant"><code class="docutils literal notranslate"><span class="pre">Variant</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="types.html#inductive"><code class="docutils literal notranslate"><span class="pre">Inductive</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="types.html#coinductive"><code class="docutils literal notranslate"><span class="pre">CoInductive</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="types.html#sum-or"><code class="docutils literal notranslate"><span class="pre">sum</span></code>, <code class="docutils literal notranslate"><span class="pre">or</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="types.html#product-types">Product types</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="types.html#record-structure"><code class="docutils literal notranslate"><span class="pre">Record</span></code>, <code class="docutils literal notranslate"><span class="pre">Structure</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="types.html#prod-sigma-and-ex"><code class="docutils literal notranslate"><span class="pre">prod</span></code>, <code class="docutils literal notranslate"><span class="pre">sigma</span></code>, <code class="docutils literal notranslate"><span class="pre">and</span></code>, <code class="docutils literal notranslate"><span class="pre">ex</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="types.html#typeclasses-and-canonical-structures">Typeclasses and canonical structures</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="types.html#class"><code class="docutils literal notranslate"><span class="pre">Class</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="types.html#instance"><code class="docutils literal notranslate"><span class="pre">Instance</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="types.html#canonical-structure"><code class="docutils literal notranslate"><span class="pre">Canonical</span> <span class="pre">Structure</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ltac.html">Ltac</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ltac.html#goal-context-management">Goal &amp; context management</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ltac.html#automatic-variable-naming">Automatic variable naming</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ltac.html#braces-and-bullets">Braces and bullets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ltac.html#no-epic-proofs">No epic proofs</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ltac.html#destruct-patterns">Destruct patterns</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ltac.html#defining-custom-tactics">Defining custom tactics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ltac.html#guidance-on-specific-tactics">Guidance on specific tactics</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ltac.html#intro-intros-revert-rename-clear"><code class="docutils literal notranslate"><span class="pre">intro</span></code>, <code class="docutils literal notranslate"><span class="pre">intros</span></code>, <code class="docutils literal notranslate"><span class="pre">revert</span></code>, <code class="docutils literal notranslate"><span class="pre">rename</span></code>, <code class="docutils literal notranslate"><span class="pre">clear</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ltac.html#admit-give-up"><code class="docutils literal notranslate"><span class="pre">admit</span></code>, <code class="docutils literal notranslate"><span class="pre">give_up</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ltac.html#easy-now-assumption-trivial"><code class="docutils literal notranslate"><span class="pre">easy</span></code>, <code class="docutils literal notranslate"><span class="pre">now</span></code>, <code class="docutils literal notranslate"><span class="pre">assumption</span></code>, <code class="docutils literal notranslate"><span class="pre">trivial</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ltac.html#try"><code class="docutils literal notranslate"><span class="pre">try</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ltac.html#lia-nia"><code class="docutils literal notranslate"><span class="pre">lia</span></code>, <code class="docutils literal notranslate"><span class="pre">nia</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ltac.html#left-right-exists-constructor"><code class="docutils literal notranslate"><span class="pre">left</span></code>, <code class="docutils literal notranslate"><span class="pre">right</span></code>, <code class="docutils literal notranslate"><span class="pre">exists</span></code>, <code class="docutils literal notranslate"><span class="pre">constructor</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ltac.html#reflexivity-symmetry-transitivity-congruence"><code class="docutils literal notranslate"><span class="pre">reflexivity</span></code>, <code class="docutils literal notranslate"><span class="pre">symmetry</span></code>, <code class="docutils literal notranslate"><span class="pre">transitivity</span></code>, <code class="docutils literal notranslate"><span class="pre">congruence</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ltac.html#absurd-contradiction-exfalso"><code class="docutils literal notranslate"><span class="pre">absurd</span></code>, <code class="docutils literal notranslate"><span class="pre">contradiction</span></code>, <code class="docutils literal notranslate"><span class="pre">exfalso</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ltac.html#exact-apply-refine"><code class="docutils literal notranslate"><span class="pre">exact</span></code>, <code class="docutils literal notranslate"><span class="pre">apply</span></code>, <code class="docutils literal notranslate"><span class="pre">refine</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ltac.html#simpl-red-cbv"><code class="docutils literal notranslate"><span class="pre">simpl</span></code>, <code class="docutils literal notranslate"><span class="pre">red</span></code>, <code class="docutils literal notranslate"><span class="pre">cbv</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ltac.html#rewrite-subst"><code class="docutils literal notranslate"><span class="pre">rewrite</span></code>, <code class="docutils literal notranslate"><span class="pre">subst</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ltac.html#assert-as-enough"><code class="docutils literal notranslate"><span class="pre">assert</span> <span class="pre">...</span> <span class="pre">as</span></code>, <code class="docutils literal notranslate"><span class="pre">enough</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ltac.html#pose-proof-as"><code class="docutils literal notranslate"><span class="pre">pose</span> <span class="pre">proof</span> <span class="pre">...</span> <span class="pre">as</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ltac.html#remember-as"><code class="docutils literal notranslate"><span class="pre">remember</span> <span class="pre">...</span> <span class="pre">as</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ltac.html#change-with"><code class="docutils literal notranslate"><span class="pre">change</span> <span class="pre">...</span> <span class="pre">with</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ltac.html#generalize"><code class="docutils literal notranslate"><span class="pre">generalize</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ltac.html#specialize"><code class="docutils literal notranslate"><span class="pre">specialize</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ltac.html#auto"><code class="docutils literal notranslate"><span class="pre">auto</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ltac.html#eintros-evar-eauto-erefine-eassumption-eenough-instantiate"><code class="docutils literal notranslate"><span class="pre">eintros</span></code>, <code class="docutils literal notranslate"><span class="pre">evar</span></code>, <code class="docutils literal notranslate"><span class="pre">eauto</span></code>, <code class="docutils literal notranslate"><span class="pre">erefine</span></code>, <code class="docutils literal notranslate"><span class="pre">eassumption</span></code>, <code class="docutils literal notranslate"><span class="pre">eenough</span></code>, <code class="docutils literal notranslate"><span class="pre">instantiate</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="#">vstyle</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="principles.html">Principles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="project_structure.html">Project structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="formatting.html">Formatting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="naming_conventions.html">Naming conventions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scope_management.html">Scope management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="definitions.html">Definitions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="types.html">Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ltac.html">Ltac</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="#">Documentation overview</a><ul>
+      <li>Next: <a href="principles.html" title="next chapter">Principles</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2021, applied.fm.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.4</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.8</a>
+      
+      |
+      <a href="_sources/index.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
