@@ -5,6 +5,15 @@ Project structure
 Documentation
 -------------
 
+``coqdoc``
+~~~~~~~~~~
+
+TODO
+
+
+``alectryon``
+~~~~~~~~~~~~~
+
 TODO
 
 
