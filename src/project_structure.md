@@ -2,10 +2,13 @@
 
 Part of the <a href="index.html">applied.fm Style Guide for Coq</a>.
 
-## Principles
+## Documentation
 
-* Ease of navigation.
-* Ease of maintenance.
+TODO
+
+## Continuous Integration
+
+TODO
 
 ## Layout
 
@@ -114,7 +117,3 @@ This convention achieves the following:
 ### `README.md`
 
 Always provide a readme.
-
-## Testing
-
-* Enable continuous integration.

@@ -8,7 +8,7 @@ $(OUTDIR)/%.html: $(INDIR)/%.md
 
 all: $(OUTDIR) \
 	$(OUTDIR)/index.html \
-	$(OUTDIR)/02-project_structure.html
+	$(OUTDIR)/project_structure.html
 
 $(OUTDIR):
 	mkdir -p $(OUTDIR)

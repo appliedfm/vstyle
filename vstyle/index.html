@@ -21,24 +21,76 @@
 <h1>About</h1>
 <p>This is a work in progress! We welcome feedback and pull requests. Find us on <a class="reference external" href="https://github.com/appliedfm/vstyle">GitHub</a>.</p>
 </div>
+<div class="section" id="principles">
+<h1>Principles</h1>
+<div class="section" id="use-cases">
+<h2>Use cases</h2>
+<ol class="simple">
+<li>User/contributor/curious person browsing the GitHub repository in a browser</li>
+<li>User/contributor/curious person exploring the code in a proof assistant</li>
+<li>User/contributor who needs to isolate and resolve build issues</li>
+<li>User trying to explore undocumented features</li>
+<li>Researcher trying to understand the architecture</li>
+<li>Contributor trying to ship a new feature</li>
+<li>Contributor engaged in a large refactor</li>
+</ol>
+</div>
+<div class="section" id="objectives">
+<h2>Objectives</h2>
+<ol class="simple">
+<li>Find &amp; replace work as expected.</li>
+<li>Mitigate <a href="https://en.wikipedia.org/wiki/Law_of_triviality">the law of triviality</a>.</li>
+<li>Code is robust against changes to the Coq engine.</li>
+<li>Code is minimally impacted by breaking changes in upstream components.</li>
+</ol>
+</div>
+</div>
 <div class="section" id="table-of-contents">
 <h1>Table of Contents</h1>
 <ol class="simple">
-<li>Principles</li>
-<li><a href="02-project_structure.html">Project structure</a></li>
-<li>Formatting (spaces, tabs, line length, non-ASCII characters)</li>
-<li>Naming conventions</li>
+<li><a href="project_structure.html">Project structure</a><ul>
+<li>Documentation</li>
+<li>Continuous integration</li>
+<li>Repo layout</li>
+</ul>
+</li>
+<li>Formatting<ul>
+<li>Spaces &amp; tabs</li>
+<li>Line length</li>
+<li>Non-ASCII characters</li>
+</ul>
+</li>
+<li>Naming conventions<ul>
+<li>Files</li>
+<li>Modules</li>
+<li>Types</li>
+<li>Predicates</li>
+<li>Projections</li>
+</ul>
+</li>
 <li>Imports &amp; exports</li>
 <li>Notations</li>
-<li>Definitions &amp; lemmas</li>
+<li>Definitions &amp; lemmas<ul>
+<li>Type inference</li>
+</ul>
+</li>
 <li>Variants, inductives, and records</li>
 <li>Classes and canonical structures</li>
+<li>Arguments</li>
+<li>Modules</li>
 <li>Ltac</li>
 </ol>
 </div>
 <div class="section" id="library-specific-guidance">
 <h1>Library-specific guidance</h1>
 <ul class="simple">
+<li>coq-lib<ul>
+<li>list</li>
+<li>prod</li>
+<li>sum</li>
+<li>sigma</li>
+</ul>
+</li>
 <li>coq-ext-lib</li>
 <li>ITree</li>
 <li>VST</li>
