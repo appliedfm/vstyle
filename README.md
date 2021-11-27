@@ -8,7 +8,7 @@ Requires:
 * [alectryon](https://github.com/cpitclaudel/alectryon)
 
 ```console
-$ make -C doc html
+$ make -C docs html
 ```
 
 ## References
