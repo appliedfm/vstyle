@@ -10,6 +10,10 @@ TODO
 
 TODO
 
+## Dependencies
+
+* Maintain compatibility with the <a href="https://github.com/coq/platform">Coq Platform</a>.
+
 ## Layout
 
 The following directory structure is recommended::
