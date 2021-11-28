@@ -77,9 +77,11 @@ Desired outcome
 This style guide seeks to drive the following outcomes:
 
 
-Mitigate bike-shedding
-~~~~~~~~~~~~~~~~~~~~~~
+Mitigate bike-shedding & reduce cognitive load
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+* Browsing the code (in a browser)
+* Understanding the architecture
 * Shipping new features
 * Refactoring
 
@@ -103,25 +105,25 @@ Find & replace work as expected
 * Refactoring
 
 
-Code is robust against changes to the Coq engine
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Project is robust against changes to the Coq engine
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 * Isolating & resolving build issues
 
 
-Code is minimally impacted by changes in upstream components
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-* Isolating & resolving build issues
-
-
-Code changes have minimal impact on downstream users
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Project is minimally impacted by changes in upstream components
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 * Isolating & resolving build issues
 
 
 Upstream maintainers are not punished for offering to help
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+* Isolating & resolving build issues
+
+
+Project changes have minimal impact on downstream users
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 * Isolating & resolving build issues
