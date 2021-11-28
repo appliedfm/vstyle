@@ -93,7 +93,7 @@ Distribution
 Documentation
 ~~~~~~~~~~~~~
 
-* Publish documentation on `readthedocs.org <readthedocs.org>`_.
+* Publish documentation on `readthedocs.org <https://readthedocs.org>`_.
 
 
 Announcements
@@ -127,6 +127,7 @@ The following directory hierarchy is recommended:
 * :file:`examples/`
 * :file:`theories/`
 * :file:`.gitignore`
+* :file:`.readthedocs.yaml`
 * :file:`_CoqProject`
 * :file:`coq-{myproject}.opam`
 * :file:`Makefile`
@@ -227,6 +228,14 @@ This file should direct :command:`git` to ignore the following::
 It should be amended as-needed to ensure the following:
 
 * :command:`git status` is not changed by any of the workflows supported by :file:`Makefile` (except when such changes are the purpose of the workflow).
+
+
+:file:`.readthedocs.yaml`
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+*Does not apply to all projects.*
+
+Applies only when the project documentation is hosted by `readthedocs.org <https://readthedocs.org>`_.
 
 
 :file:`_CoqProject`
