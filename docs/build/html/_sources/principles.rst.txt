@@ -2,156 +2,126 @@ Principles
 ==========
 
 
-Personas
---------
+Roles & personas
+----------------
 
-Curious person
-~~~~~~~~~~~~~~
+Many different roles & personas have an interest in project style.
 
-Examples include:
-
-* Students
-* Professionals in industry
-
-
-Researcher
-~~~~~~~~~~
-
-Examples include:
-
-* Academic researchers
-* Tech leads in industry
-
-
-User
-~~~~
-
-TODO
-
-
-Contributor
-~~~~~~~~~~~
-
-TODO
-
-
-Platform maintainer
-~~~~~~~~~~~~~~~~~~~
-
-Examples include:
-
-* Coq Platform maintainers
-* Nix package maintainers
-
-
-Upstream maintainer
-~~~~~~~~~~~~~~~~~~~
-
-Examples include:
-
-* Coq maintainers
+* Curious person
+   * Student
+   * Academic researcher
+   * Professional in industry
+* Researcher
+   * Academic researcher
+* User
+   * Student
+   * Academic researcher
+   * Professional in industry
+* Contributor
+   * Student
+   * Academic researcher
+   * Professional in industry
+* Platform maintainer
+   * `Coq Platform <https://github.com/coq/platform>`_ maintainers
+   * Nix package maintainers
+   * Academic researcher
+* Upstream maintainer
+   * Coq maintainers
+   * Academic researcher
+   * Professional in industry
 
 
 Use cases
 ---------
 
-Browsing the code (in a browser)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Project style impacts several frequent use cases.
 
-*Curious person, researcher, user, contributor*
-
-TODO
-
-
-
-Browsing the code (in a proof assistant)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-*Curious person, researcher, user, contributor*
-
-TODO
-
-
-Isolating & resolving build issues
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-*User, contributor, platform maintainer*
-
-TODO
-
-
-Exploring undocumented features
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-*Researcher, user*
-
-TODO
-
-
-Understanding the architecture
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-*Researcher, user, contributor*
-
-TODO
+* Browsing the code (in a browser)
+   * Curious person
+   * Researcher
+   * User
+   * Contributor
+   * Platform maintainer
+   * Upstream maintainer
+* Browsing the code (in a proof assistant)
+   * Curious person
+   * Researcher
+   * User
+   * Contributor
+   * Platform maintainer
+   * Upstream maintainer
+* Isolating & resolving build issues
+   * User
+   * Contributor
+   * Platform maintainer
+   * Upstream maintainer
+* Exploring undocumented features
+   * Researcher
+   * User
+   * Contributor
+* Understanding the architecture
+   * Researcher
+   * User
+   * Contributor
+* Shipping new features
+   * Contributor
+* Refactoring
+   * Contributor
+   * Platform maintainer
+   * Upstream maintainer
 
 
-Shipping new features
-~~~~~~~~~~~~~~~~~~~~~
+Desired outcome
+---------------
 
-*Contributor*
+This style guide seeks to drive the following outcomes:
 
-TODO
-
-
-Refactoring
-~~~~~~~~~~~
-
-*Contributor*
-
-TODO
-
-
-Objectives
-----------
 
 Mitigate bike-shedding
 ~~~~~~~~~~~~~~~~~~~~~~
 
-TODO
+* Shipping new features
+* Refactoring
 
 
 Style is enforcable by a linter
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-TODO
+* Shipping new features
+* Refactoring
 
 
 Find & replace work as expected
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-TODO
+* Browsing the code (in a browser)
+* Browsing the code (in a proof assistant)
+* Isolating & resolving build issues
+* Exploring undocumented features
+* Understanding the architecture
+* Shipping new features
+* Refactoring
 
 
 Code is robust against changes to the Coq engine
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-TODO
+* Isolating & resolving build issues
 
 
 Code is minimally impacted by changes in upstream components
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-TODO
+* Isolating & resolving build issues
 
 
 Code changes have minimal impact on downstream users
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-TODO
+* Isolating & resolving build issues
 
 
 Upstream maintainers are not punished for offering to help
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-TODO
+* Isolating & resolving build issues
