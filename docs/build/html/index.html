@@ -8,12 +8,10 @@
     <title>Style Guide for Coq &#8212; vstyle  documentation</title>
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="_static/alectryon.css" />
     <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/alectryon.js"></script>
     <link rel="shortcut icon" href="_static/favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -69,14 +67,18 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="project_structure.html">Project structure</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="project_structure.html#documentation">Documentation</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="project_structure.html#coqdoc"><code class="docutils literal notranslate"><span class="pre">coqdoc</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="project_structure.html#alectryon"><code class="docutils literal notranslate"><span class="pre">alectryon</span></code></a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="project_structure.html#project-documentation">Project documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="project_structure.html#source-example-documentation">Source &amp; example documentation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="project_structure.html#continuous-integration">Continuous Integration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="project_structure.html#dependencies">Dependencies</a></li>
-<li class="toctree-l2"><a class="reference internal" href="project_structure.html#layout">Layout</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="project_structure.html#releases">Releases</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="project_structure.html#versioning">Versioning</a></li>
+<li class="toctree-l3"><a class="reference internal" href="project_structure.html#distribution">Distribution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="project_structure.html#documentation">Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="project_structure.html#announcements">Announcements</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="project_structure.html#repo-structure">Repo Structure</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="project_structure.html#dep"><code class="docutils literal notranslate"><span class="pre">dep/</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="project_structure.html#docs"><code class="docutils literal notranslate"><span class="pre">docs/</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="project_structure.html#ext"><code class="docutils literal notranslate"><span class="pre">ext/</span></code></a></li>
@@ -86,6 +88,7 @@
 <li class="toctree-l3"><a class="reference internal" href="project_structure.html#coqproject"><code class="docutils literal notranslate"><span class="pre">_CoqProject</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="project_structure.html#coq-myproject-opam"><code class="docutils literal notranslate"><span class="pre">coq-myproject.opam</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="project_structure.html#makefile"><code class="docutils literal notranslate"><span class="pre">Makefile</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="project_structure.html#makefile-configure"><code class="docutils literal notranslate"><span class="pre">Makefile.configure</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="project_structure.html#contributing-md"><code class="docutils literal notranslate"><span class="pre">CONTRIBUTING.md</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="project_structure.html#license-md"><code class="docutils literal notranslate"><span class="pre">LICENSE.md</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="project_structure.html#readme-md"><code class="docutils literal notranslate"><span class="pre">README.md</span></code></a></li>
@@ -183,10 +186,6 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="types.html#inheritance-and-coercion">Inheritance and <code class="docutils literal notranslate"><span class="pre">Coercion</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="types.html#boxed-and-unboxed-representations">Boxed and unboxed representations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="types.html#universes">Universes</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="types.html#universe-polymorphism">Universe polymorphism</a></li>
-</ul>
-</li>
 <li class="toctree-l2"><a class="reference internal" href="types.html#common-classes-structures">Common classes &amp; structures</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="types.html#coq-classes-decidableclass"><code class="docutils literal notranslate"><span class="pre">Coq.Classes.DecidableClass</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="types.html#coq-classes-equivdec"><code class="docutils literal notranslate"><span class="pre">Coq.Classes.EquivDec</span></code></a></li>
@@ -194,6 +193,10 @@
 <li class="toctree-l3"><a class="reference internal" href="types.html#coq-classes-setoidclass"><code class="docutils literal notranslate"><span class="pre">Coq.Classes.SetoidClass</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="types.html#coq-classes-setoiddec"><code class="docutils literal notranslate"><span class="pre">Coq.Classes.SetoidDec</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="types.html#extlib-structures-monad"><code class="docutils literal notranslate"><span class="pre">ExtLib.Structures.Monad</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="types.html#universes">Universes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="types.html#universe-polymorphism">Universe polymorphism</a></li>
 </ul>
 </li>
 </ul>

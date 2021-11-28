@@ -8,12 +8,10 @@
     <title>Project structure &#8212; vstyle  documentation</title>
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="_static/alectryon.css" />
     <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/alectryon.js"></script>
     <link rel="shortcut icon" href="_static/favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -34,30 +32,118 @@
             
   <div class="section" id="project-structure">
 <h1>Project structure<a class="headerlink" href="#project-structure" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="documentation">
-<h2>Documentation<a class="headerlink" href="#documentation" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="coqdoc">
-<h3><code class="docutils literal notranslate"><span class="pre">coqdoc</span></code><a class="headerlink" href="#coqdoc" title="Permalink to this headline">¶</a></h3>
-<p>TODO</p>
+<div class="section" id="project-documentation">
+<h2>Project documentation<a class="headerlink" href="#project-documentation" title="Permalink to this headline">¶</a></h2>
+<p>The following must be documented:</p>
+<ul class="simple">
+<li><p>License &amp; copyright.</p></li>
+<li><p>The URL of the project’s main website or repository.</p></li>
+<li><dl class="simple">
+<dt>Installation instructions.</dt><dd><ul>
+<li><p>How to get the code.</p></li>
+<li><p>Versions of the <a class="reference external" href="https://github.com/coq/platform">Coq Platform</a> that are known to be compatible.</p></li>
+<li><p>Sample commands for installing with <code class="docutils literal notranslate"><span class="pre">opam</span></code>.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>Example usage.</p></li>
+</ul>
 </div>
-<div class="section" id="alectryon">
-<h3><code class="docutils literal notranslate"><span class="pre">alectryon</span></code><a class="headerlink" href="#alectryon" title="Permalink to this headline">¶</a></h3>
-<p>TODO</p>
-</div>
+<div class="section" id="source-example-documentation">
+<h2>Source &amp; example documentation<a class="headerlink" href="#source-example-documentation" title="Permalink to this headline">¶</a></h2>
+<p>Requirements vary by project.</p>
+<ul class="simple">
+<li><p>Use <a class="reference external" href="https://coq.inria.fr/refman/using/tools/coqdoc.html">coqdoc</a>, <a class="reference external" href="https://github.com/cpitclaudel/alectryon/">alectryon</a>, <a class="reference external" href="https://www.sphinx-doc.org">sphinx</a>, or some combination thereof.</p></li>
+</ul>
 </div>
 <div class="section" id="continuous-integration">
 <h2>Continuous Integration<a class="headerlink" href="#continuous-integration" title="Permalink to this headline">¶</a></h2>
-<p>TODO</p>
+<p>Use the <a class="reference external" href="https://hub.docker.com/r/coqorg/coq/">Coq Docker Image</a> to <a class="reference external" href="https://github.com/coq-community/docker-coq/wiki/CI-setup">continuously test your build</a>.</p>
 </div>
 <div class="section" id="dependencies">
 <h2>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p>Maintain compatibility with the <a class="reference external" href="https://github.com/coq/platform">Coq Platform</a>.</p></li>
+<li><p>When possible, maintain compatibility with the <a class="reference external" href="https://github.com/coq/platform">Coq Platform</a>.</p></li>
+<li><p>Ensure all dependencies are accurately represented in the project’s <code class="docutils literal notranslate"><span class="pre">opam</span></code> file.</p></li>
 </ul>
 </div>
-<div class="section" id="layout">
-<h2>Layout<a class="headerlink" href="#layout" title="Permalink to this headline">¶</a></h2>
-<p>The following directory structure is recommended:</p>
+<div class="section" id="releases">
+<h2>Releases<a class="headerlink" href="#releases" title="Permalink to this headline">¶</a></h2>
+<p>Prior to release, verify the following:</p>
+<ul class="simple">
+<li><p>All necessary documentation is in place.</p></li>
+<li><dl class="simple">
+<dt>The opam file is accurate and works in the following modes:</dt><dd><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">opam</span> <span class="pre">install</span> <span class="pre">--deps-only</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">opam</span> <span class="pre">install</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">opam</span> <span class="pre">remove</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>The project is compatible with the most-recent release of the <a class="reference external" href="https://github.com/coq/platform">Coq Platform</a>.</p></li>
+<li><dl class="simple">
+<dt>The project’s “metadata” is accurate:</dt><dd><ul>
+<li><p>Copyright holders, contributors, maintainers, etc, are all accurate.</p></li>
+<li><p>The URL of the project’s main website or repository is accurate.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>The installation instructions are accurate:</dt><dd><ul>
+<li><p>Dependencies, version information, and console commands are up-to-date.</p></li>
+<li><p>Installation procedure works from a “clean-slate” <code class="docutils literal notranslate"><span class="pre">opam</span></code> switch.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>Examples are tested and known to work.</p></li>
+</ul>
+<div class="section" id="versioning">
+<h3>Versioning<a class="headerlink" href="#versioning" title="Permalink to this headline">¶</a></h3>
+<p>Use the <a class="reference external" href="https://opam.ocaml.org/doc/Manual.html#version-ordering">opam version schema</a>.</p>
+</div>
+<div class="section" id="distribution">
+<h3>Distribution<a class="headerlink" href="#distribution" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><dl class="simple">
+<dt>Tag the release in source control.</dt><dd><ul>
+<li><p>See <a class="reference external" href="https://docs.github.com/en/repositories/releasing-projects-on-github/managing-releases-in-a-repository">Managing releases in a repository</a> if using GitHub.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>Submit the new release to the <a class="reference external" href="https://coq.inria.fr/opam-packaging.html">Opam archive for Coq</a>.</p></li>
+</ul>
+</div>
+<div class="section" id="documentation">
+<h3>Documentation<a class="headerlink" href="#documentation" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Publish documentation on <a class="reference external" href="readthedocs.org">readthedocs.org</a>.</p></li>
+</ul>
+</div>
+<div class="section" id="announcements">
+<h3>Announcements<a class="headerlink" href="#announcements" title="Permalink to this headline">¶</a></h3>
+<p>Announce the release in the following venues:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://sympa.inria.fr/sympa/info/coq-club">coq-club mailing list</a></p></li>
+<li><p><a class="reference external" href="https://coq.zulipchat.com/">Coq on Zulip</a></p></li>
+<li><p><a class="reference external" href="https://twitter.com/CoqLang">&#64;CoqLang on Twitter</a></p></li>
+<li><p><a class="reference external" href="https://www.reddit.com/r/Coq/">/r/coq on Reddit</a></p></li>
+<li><p><a class="reference external" href="https://coq.discourse.group/">Coq on Discourse</a></p></li>
+</ul>
+<p>Optionally, submit the project for inclusion in the following venues:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/coq-community/awesome-coq">awesome-coq</a></p></li>
+<li><p><a class="reference external" href="https://github.com/coq/platform">Coq Platform</a></p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="repo-structure">
+<h2>Repo Structure<a class="headerlink" href="#repo-structure" title="Permalink to this headline">¶</a></h2>
+<p>The following directory hierarchy is recommended:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">dep/</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">docs/</span></code></p></li>
@@ -68,14 +154,16 @@
 <li><p><code class="docutils literal notranslate"><span class="pre">_CoqProject</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">coq-myproject.opam</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">Makefile</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Makefile.configure</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">CONTRIBUTING.md</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">LICENSE.md</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">README.md</span></code></p></li>
 </ul>
+<p>Not every path is required; see below for additional guidance.</p>
 <div class="section" id="dep">
 <h3><code class="docutils literal notranslate"><span class="pre">dep/</span></code><a class="headerlink" href="#dep" title="Permalink to this headline">¶</a></h3>
 <p>Does not apply to all projects.</p>
-<p>Contains Git submodules for dependencies that cannot be found in opam, either because they generally do not have opam packages or because a bleeding-edge version is required that has not been released yet.</p>
+<p>Contains Git submodules for dependencies that cannot be found in opam, either because they generally do not have <code class="docutils literal notranslate"><span class="pre">opam</span></code> packages or because a bleeding-edge version is required that has not been released yet.</p>
 <p>This convention achieves the following:</p>
 <ul class="simple">
 <li><p>It gives sensible results when used with <code class="docutils literal notranslate"><span class="pre">-Q</span></code> as in <code class="docutils literal notranslate"><span class="pre">-Q</span> <span class="pre">dep/MyDep</span> <span class="pre">MyDep</span></code></p></li>
@@ -137,8 +225,8 @@
 </div>
 <div class="section" id="coq-myproject-opam">
 <h3><code class="docutils literal notranslate"><span class="pre">coq-myproject.opam</span></code><a class="headerlink" href="#coq-myproject-opam" title="Permalink to this headline">¶</a></h3>
-<p>Opam is the preferred method of managing dependencies in the Coq ecosystem. Even if your project is not published to the opam repository, the presence of an opam file in your project will be useful to downstream users.</p>
-<p>Your opam file should document your project’s dependencies at a minimum. It should also provide build &amp; install operations, particularly if you want to encourage others to build on your work.</p>
+<p><code class="docutils literal notranslate"><span class="pre">opam</span></code> is the preferred method of managing dependencies in the Coq ecosystem. Even if the project is not published to the <code class="docutils literal notranslate"><span class="pre">opam</span></code> repository, the presence of an <code class="docutils literal notranslate"><span class="pre">opam</span></code> file in the project will be useful to downstream users (both for dependency installation and for installing the project from source).</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">opam</span></code> file must document the project’s dependencies. It should also provide build &amp; install operations.</p>
 <p>This convention achieves the following:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">opam</span> <span class="pre">install</span> <span class="pre">--deps-only</span> <span class="pre">./coq-myproject.opam</span></code> works as expected.</p></li>
@@ -157,17 +245,37 @@
 <li><p>It is compatible with opam: the project’s opam file should rely on the Makefile to perform the build and installation steps.</p></li>
 </ul>
 </div>
+<div class="section" id="makefile-configure">
+<h3><code class="docutils literal notranslate"><span class="pre">Makefile.configure</span></code><a class="headerlink" href="#makefile-configure" title="Permalink to this headline">¶</a></h3>
+<p>Does not apply to all projects.</p>
+<p>Enumerates and documents the user-configurable variables used by <code class="docutils literal notranslate"><span class="pre">Makefile</span></code>.</p>
+<p>This convention achieves the following:</p>
+<ul class="simple">
+<li><p>It allows users and contributors to configure their build without editing <code class="docutils literal notranslate"><span class="pre">Makefile</span></code>.</p></li>
+</ul>
+</div>
 <div class="section" id="contributing-md">
 <h3><code class="docutils literal notranslate"><span class="pre">CONTRIBUTING.md</span></code><a class="headerlink" href="#contributing-md" title="Permalink to this headline">¶</a></h3>
 <p>Does not apply to all projects.</p>
+<p>Provides information to potential contributors:</p>
+<ul class="simple">
+<li><p>Where to file issues</p></li>
+<li><p>Where to submit pull requests</p></li>
+<li><p>Community standards &amp; guidelines</p></li>
+</ul>
 </div>
 <div class="section" id="license-md">
 <h3><code class="docutils literal notranslate"><span class="pre">LICENSE.md</span></code><a class="headerlink" href="#license-md" title="Permalink to this headline">¶</a></h3>
-<p>Always specify a license. Note that <a class="reference external" href="https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository">GitHub has the ability</a> to recognize certain popular licenses and that they expose this as a search criteria.</p>
+<p>The project must specify a license and copyright.</p>
+<p>Note that <a class="reference external" href="https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository">GitHub has the ability</a> to recognize certain popular licenses and that they expose this as a search criteria.</p>
 </div>
 <div class="section" id="readme-md">
 <h3><code class="docutils literal notranslate"><span class="pre">README.md</span></code><a class="headerlink" href="#readme-md" title="Permalink to this headline">¶</a></h3>
-<p>Always provide a readme.</p>
+<p>This must contain:</p>
+<ul class="simple">
+<li><p>Installation instructions.</p></li>
+<li><p>Concise examples and/or references to longer examples.</p></li>
+</ul>
 </div>
 </div>
 </div>
@@ -191,14 +299,18 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="principles.html">Principles</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Project structure</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#documentation">Documentation</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#coqdoc"><code class="docutils literal notranslate"><span class="pre">coqdoc</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#alectryon"><code class="docutils literal notranslate"><span class="pre">alectryon</span></code></a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="#project-documentation">Project documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#source-example-documentation">Source &amp; example documentation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#continuous-integration">Continuous Integration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#dependencies">Dependencies</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#layout">Layout</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#releases">Releases</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#versioning">Versioning</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#distribution">Distribution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#documentation">Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#announcements">Announcements</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#repo-structure">Repo Structure</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#dep"><code class="docutils literal notranslate"><span class="pre">dep/</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#docs"><code class="docutils literal notranslate"><span class="pre">docs/</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#ext"><code class="docutils literal notranslate"><span class="pre">ext/</span></code></a></li>
@@ -208,6 +320,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#coqproject"><code class="docutils literal notranslate"><span class="pre">_CoqProject</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#coq-myproject-opam"><code class="docutils literal notranslate"><span class="pre">coq-myproject.opam</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#makefile"><code class="docutils literal notranslate"><span class="pre">Makefile</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#makefile-configure"><code class="docutils literal notranslate"><span class="pre">Makefile.configure</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#contributing-md"><code class="docutils literal notranslate"><span class="pre">CONTRIBUTING.md</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#license-md"><code class="docutils literal notranslate"><span class="pre">LICENSE.md</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#readme-md"><code class="docutils literal notranslate"><span class="pre">README.md</span></code></a></li>

@@ -8,12 +8,10 @@
     <title>Alectryon examples &#8212; vstyle  documentation</title>
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="_static/alectryon.css" />
     <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/alectryon.js"></script>
     <link rel="shortcut icon" href="_static/favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -36,10 +34,13 @@
 <p>This page is for testing and should be removed prior to release.</p>
 <div class="section" id="basic-example">
 <h2>Basic example<a class="headerlink" href="#basic-example" title="Permalink to this headline">¶</a></h2>
-<pre class="alectryon-io highlight"><!-- Generator: Alectryon --><span class="alectryon-sentence"><input class="alectryon-toggle" id="alectryon-examples-rst-chk0" style="display: none" type="checkbox"><label class="alectryon-input" for="alectryon-examples-rst-chk0"><span class="kn">Lemma</span> <span class="nf">le_l</span> : <span class="kr">forall</span> <span class="nv">y</span> <span class="nv">x</span>, S x &lt;= y -&gt; x &lt;= y.</label><small class="alectryon-output"><div><div class="alectryon-goals"><blockquote class="alectryon-goal"><span class="goal-separator"><hr></span><div class="goal-conclusion"><span class="kr">forall</span> <span class="nv">y</span> <span class="nv">x</span> : nat, S x &lt;= y -&gt; x &lt;= y</div></blockquote></div></div></small><span class="alectryon-wsp">
-</span></span><span class="alectryon-wsp">  </span><span class="alectryon-sentence"><input class="alectryon-toggle" id="alectryon-examples-rst-chk1" style="display: none" type="checkbox"><label class="alectryon-input" for="alectryon-examples-rst-chk1"><span class="nb">induction</span> y; <span class="nb">inversion</span> <span class="mi">1</span>; <span class="nb">subst</span>.</label><small class="alectryon-output"><div><div class="alectryon-goals"><blockquote class="alectryon-goal"><div class="goal-hyps"><span><var>y</var><span class="hyp-type"><b>: </b><span>nat</span></span></span><br><span><var>IHy</var><span class="hyp-type"><b>: </b><span><span class="kr">forall</span> <span class="nv">x</span> : nat, S x &lt;= y -&gt; x &lt;= y</span></span></span><br><span><var>H</var><span class="hyp-type"><b>: </b><span>S y &lt;= S y</span></span></span><br></div><span class="goal-separator"><hr></span><div class="goal-conclusion">y &lt;= S y</div></blockquote><div class="alectryon-extra-goals"><input class="alectryon-extra-goal-toggle" id="alectryon-examples-rst-chk2" style="display: none" type="checkbox"><blockquote class="alectryon-goal"><div class="goal-hyps"><span><var>y</var><span class="hyp-type"><b>: </b><span>nat</span></span></span><br><span><var>IHy</var><span class="hyp-type"><b>: </b><span><span class="kr">forall</span> <span class="nv">x</span> : nat, S x &lt;= y -&gt; x &lt;= y</span></span></span><br><span><var>x</var><span class="hyp-type"><b>: </b><span>nat</span></span></span><br><span><var>H</var><span class="hyp-type"><b>: </b><span>S x &lt;= S y</span></span></span><br><span><var>H1</var><span class="hyp-type"><b>: </b><span>S x &lt;= y</span></span></span><br></div><label class="goal-separator" for="alectryon-examples-rst-chk2"><hr></label><div class="goal-conclusion">x &lt;= S y</div></blockquote></div></div></div></small><span class="alectryon-wsp">
-</span></span><span class="alectryon-wsp">  </span><span class="alectryon-sentence"><input class="alectryon-toggle" id="alectryon-examples-rst-chk3" style="display: none" type="checkbox"><label class="alectryon-input" for="alectryon-examples-rst-chk3"><span class="kp">all</span>: <span class="nb">info_eauto</span>.</label><small class="alectryon-output"><div><div class="alectryon-messages"><blockquote class="alectryon-message"><span class="c">(* info eauto: *)</span></blockquote><blockquote class="alectryon-message"><span class="nb">simple apply</span> le_S.</blockquote><blockquote class="alectryon-message"><span class="nb">simple apply</span> le_n.</blockquote><blockquote class="alectryon-message"><span class="c">(* info eauto: *)</span></blockquote><blockquote class="alectryon-message"><span class="nb">simple apply</span> le_S.</blockquote><blockquote class="alectryon-message"><span class="nb">simple apply</span> IHy.</blockquote><blockquote class="alectryon-message"><span class="bp">exact</span> H1.</blockquote></div></div></small><span class="alectryon-wsp">
-</span></span><span class="alectryon-sentence"><span class="alectryon-input"><span class="kn">Qed</span>.</span></span></pre></div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Lemma</span> <span class="n">le_l</span> <span class="p">:</span> <span class="n">forall</span> <span class="n">y</span> <span class="n">x</span><span class="p">,</span> <span class="n">S</span> <span class="n">x</span> <span class="o">&lt;=</span> <span class="n">y</span> <span class="o">-&gt;</span> <span class="n">x</span> <span class="o">&lt;=</span> <span class="n">y</span><span class="o">.</span>
+  <span class="n">induction</span> <span class="n">y</span><span class="p">;</span> <span class="n">inversion</span> <span class="mi">1</span><span class="p">;</span> <span class="n">subst</span><span class="o">.</span>
+  <span class="nb">all</span><span class="p">:</span> <span class="n">info_eauto</span><span class="o">.</span>
+<span class="n">Qed</span><span class="o">.</span>
+</pre></div>
+</div>
+</div>
 </div>
 
 

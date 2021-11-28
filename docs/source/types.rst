@@ -173,15 +173,6 @@ Boxed and unboxed representations
 TODO
 
 
-Universes
----------
-
-Universe polymorphism
-~~~~~~~~~~~~~~~~~~~~~
-
-TODO
-
-
 Common classes & structures
 ------------------------------
 
@@ -233,3 +224,12 @@ Common classes & structures
 *Note:* This is part of the `ExtLib library <https://github.com/coq-community/coq-ext-lib/>`_.
 
 * ``Monad``
+
+
+Universes
+---------
+
+Universe polymorphism
+~~~~~~~~~~~~~~~~~~~~~
+
+TODO
