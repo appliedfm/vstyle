@@ -126,12 +126,13 @@ The following directory hierarchy is recommended:
 * :file:`src/`
 * :file:`examples/`
 * :file:`theories/`
+* :file:`.gitignore`
 * :file:`_CoqProject`
 * :file:`coq-{myproject}.opam`
 * :file:`Makefile`
-* :file:`Makefile.configure`
+* :file:`Makefile.configure.example`
+* :file:`LICENSE.txt`
 * :file:`CONTRIBUTING.md`
-* :file:`LICENSE.md`
 * :file:`README.md`
 
 Not every path is required; see below for additional guidance.
@@ -166,7 +167,7 @@ Documentation should be generated using `coqdoc <https://coq.inria.fr/refman/usi
 
 Contains definitions that "extend" dependencies with additional instances, lemmas, etc.
 
-The directory contains subdirectories whose names end in ``Ext``. For example, suppose one requires a lemma about lists that is not present in the standard Coq library. In this case, the lemma would be stored somewhere within ``ext/CoqExt/``.
+The directory contains subdirectories whose names end in ``Ext``, as in :file:`ext/{SomeLibrary}Ext`. For example, suppose one requires a lemma about lists that is not present in the standard Coq library. In this case, the lemma would be stored somewhere within :file:`ext/CoqExt/`.
 
 *Rationale:*
 
@@ -211,23 +212,49 @@ This is where the main Coq development is stored.
 * It gives sensible results when used with ``-Q`` as in ``-Q theories/ MyProject``
 
 
+:file:`.gitignore`
+~~~~~~~~~~~~~~~~~~
+
+This file should direct :command:`git` to ignore the following::
+
+   Makefile.configure
+   Makefile.coq*
+   *.aux
+   *.d
+   *.glob
+   *.vo*
+
+It should be amended as-needed to ensure the following:
+
+* :command:`git status` is not changed by any of the workflows supported by :file:`Makefile` (except when such changes are the purpose of the workflow).
+
+
 :file:`_CoqProject`
 ~~~~~~~~~~~~~~~~~~~
 
-This file should:
+This file:
 
-* Map ``dep``, ``ext``, ``theories``, and ``examples`` into the search path.
-* Enumerate the files in ``ext``, ``theories``, and ``examples``.
+* Must bring ``dep``, ``ext``, ``theories``, and ``examples`` into the search path.
+* Must enumerate the files in ``ext`` and ``theories``. 
+   * It should also enumerate the files in ``examples`` unless there is a compelling reason not to.
+* Must not refer to any paths outside the project's directory tree.
 
-For various reasons, some projects may require more than one :file:`_CoqProject` file. In this case:
+Some projects come in many different "variants" (such as compcert, which has a different variant for each target architecture). In this case:
 
-* There must be a "default" :file:`_CoqProject` file that satisfies the requirements above.
-* The other files must be named :file:`_CoqProject.{variant}`.
+* There must be a "default" variant, represented by a default :file:`_CoqProject` file that satisfies the requirements above.
+* The "non-default" variants each get their own file named :file:`_CoqProject-{variant}`.
+* Whenever possible, :file:`_CoqProject-{variant}` must comply with the same requirements above.
+   * If :file:`_CoqProject-{variant}` must refer to paths outside the project's tree, then the following steps are recommended:
+       * Do not commit :file:`_CoqProject-{variant}` to the repository.
+       * Add :file:`_CoqProject-{variant}` to :file:`.gitignore`.
+       * Add a target to :file:`Makefile` that can generate :file:`_CoqProject-{variant}` when needed.
 
 *Rationale:*
 
 * The generated Makefile will build all of the examples.
 * `CoqIDE <https://coq.inria.fr/refman/practical-tools/coqide.html>`_, `vscoq <https://github.com/coq-community/vscoq>`_, and other tools behave as expected.
+* Downstream users never encounter any paths that are specific to the contributor's development environment.
+* Everything present in the repository works as-is without any edits.
 
 
 :file:`coq-{myproject}.opam`
@@ -254,32 +281,56 @@ For various reasons, some projects may require more than one :command:`opam` fil
 
 Responsible for building the project.
 
-* It must contain a header advising the user to make edits to :file:`Makefile.configure` instead of :file:`Makefile`.
-* It must import :file:`Makefile.configure`, validate the user-configurable variables, and orchestrate the rest of the build.
-* It might have functionality for generating/updating :file:`_CoqProject`.
-
-The following command must work:
-
-* :samp:`opam install --deps-only ./coq-{myproject}.opam && make`
+* Configurability:
+   * It must contain a header advising the user:
+      * Not to edit :file:`Makefile` or :file:`Makefile.configure.example`.
+      * To consult :file:`Makefile.configure.example` for information on how to configure the build.
+   * It must define default values for each of the user-configurable build variables.
+   * It must import :file:`Makefile.configure` (if it exists), validate the user-configurable build variables, and orchestrate the rest of the build.
+* Engineering workflow support:
+   * It should have functionality for generating/updating :file:`_CoqProject`.
+      * This is required if the project supports any user-configurable build variables that share concerns with :file:`_CoqProject`, such as search paths for dependencies.
+* Build orchestration:
+   * Responsible for generating :file:`Makefile.coq` from :file:`_CoqProject`.
+      * Also responsible for generating :file:`Makefile.coq-{variant}` from :file:`_CoqProject-{variant}` (if the project supports multiple variants).
+   * If the project has a :file:`dep/` directory, then :file:`Makefile` must support a "two step" sequential build process:
+      * Build all of the dependencies in :file:`dep/`.
+      * Build the rest of the project.
+   * The following command must work in a newly-created :command:`opam` switch with no additional setups: :samp:`opam install --deps-only ./coq-{myproject}.opam && make`
 
 *Rationale:*
 
 * It is compatible with :command:`opam`: the project's :command:`opam` file should rely on :file:`Makefile` to perform the build & install operations.
 
 
-:file:`Makefile.configure`
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+:file:`Makefile.configure.example`
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 *Does not apply to all projects.*
 
-Enumerates and documents the user-configurable variables used by :file:`Makefile`.
+Enumerates and documents the user-configurable build variables supported by :file:`Makefile`.
 
-* It must provide sensible documentation for each variable.
-* 
+* It must contain a header with the following instructions:
+   * Do not make edits to :file:`Makefile` or :file:`Makefile.configure.example`.
+   * To customize the build, copy :file:`Makefile.configure.example` to :file:`Makefile.configure` and edit the latter.
+* It must provide documentation for each variable.
+* It must not set any variables or have any other side effects.
+   * Remember: :file:`Makefile` is responsible for default values, validation, and processing of user-configurable build variables.
+   * Users can override the default values by assigning variables in :file:`Makefile.configure`.
 
 *Rationale:*
 
 * It allows users and contributors to configure their build without editing :file:`Makefile`.
+
+
+:file:`LICENSE.txt`
+~~~~~~~~~~~~~~~~~~~
+
+The project must specify a license and copyright.
+
+* Plain text files are preferred.
+* For projects hosted on GitHub:
+   * `GitHub has the ability to recognize certain popular licenses <https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository>`_. Projects which use one of those licenses must ensure GitHub recognizes their selection.
 
 
 :file:`CONTRIBUTING.md`
@@ -289,17 +340,11 @@ Enumerates and documents the user-configurable variables used by :file:`Makefile
 
 Provides information to potential contributors:
 
-* Where to file issues
-* Where to submit pull requests
-* Community standards & guidelines
-
-
-:file:`LICENSE.md`
-~~~~~~~~~~~~~~~~~~
-
-The project must specify a license and copyright.
-
-* `GitHub has the ability to recognize certain popular licenses <https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository>`_. Projects which use one of those licenses must ensure GitHub recognizes their selection.
+* Where to file issues and pull requests.
+* Guidance about common tasks & procedures.
+* Information about the contributor community:
+   * Links to relevant mailing lists, chat channels, etc.
+   * Community standards & guidelines.
 
 
 :file:`README.md`
