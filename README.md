@@ -2,6 +2,8 @@
 
 The latest version can be viewed at [vstyle.readthedocs.io](https://vstyle.readthedocs.io).
 
+Published by [applied.fm](https://applied.fm). Hosted by [readthedocs.org](https://readthedocs.org/projects/vstyle/).
+
 
 ## Building
 
