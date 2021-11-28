@@ -63,16 +63,26 @@
 </ul>
 </div>
 </div>
-<div class="section" id="continuous-integration">
-<h2>Continuous Integration<a class="headerlink" href="#continuous-integration" title="Permalink to this headline">¶</a></h2>
-<p>Use the <a class="reference external" href="https://hub.docker.com/r/coqorg/coq/">Coq Docker image</a> to <a class="reference external" href="https://github.com/coq-community/docker-coq/wiki/CI-setup">continuously test your build</a>.</p>
-</div>
 <div class="section" id="dependencies">
 <h2>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>When possible, maintain compatibility with the <a class="reference external" href="https://github.com/coq/platform">Coq Platform</a>.</p></li>
 <li><p>Ensure all dependencies are accurately represented in the project’s <strong class="command">opam</strong> file.</p></li>
 </ul>
+</div>
+<div class="section" id="source-control">
+<h2>Source control<a class="headerlink" href="#source-control" title="Permalink to this headline">¶</a></h2>
+<p>Use <code class="code docutils literal notranslate"><span class="pre">git</span></code>.</p>
+<p><em>Rationale:</em></p>
+<ul class="simple">
+<li><p><code class="code docutils literal notranslate"><span class="pre">git</span></code> is ubiquitous in the Coq ecosystem. It is well-known by all of the personas.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">git</span></code> submodules are widely used in the Coq ecosystem. This is particularly true for bleeding-edge development. It is wise to be compatible with this practice.</p></li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">git</span></code> works well with <code class="code docutils literal notranslate"><span class="pre">opam</span></code>.</p></li>
+</ul>
+</div>
+<div class="section" id="continuous-integration">
+<h2>Continuous Integration<a class="headerlink" href="#continuous-integration" title="Permalink to this headline">¶</a></h2>
+<p>Use the <a class="reference external" href="https://hub.docker.com/r/coqorg/coq/">Coq Docker image</a> to <a class="reference external" href="https://github.com/coq-community/docker-coq/wiki/CI-setup">continuously test your build</a>.</p>
 </div>
 <div class="section" id="releases">
 <h2>Releases<a class="headerlink" href="#releases" title="Permalink to this headline">¶</a></h2>
@@ -98,7 +108,7 @@
 <li><p>The project is compatible with the most-recent release of the <a class="reference external" href="https://github.com/coq/platform">Coq Platform</a>.</p></li>
 <li><dl class="simple">
 <dt>The project’s “metadata” is accurate:</dt><dd><ul>
-<li><p>Copyright holders, contributors, maintainers, etc, are all accurate.</p></li>
+<li><p>Copyright holders, contributors, maintainers, citations/references, etc, are all accurate.</p></li>
 <li><p>The URL of the project’s main website or repository is accurate.</p></li>
 </ul>
 </dd>
@@ -107,12 +117,13 @@
 <li><dl class="simple">
 <dt>The installation instructions are accurate:</dt><dd><ul>
 <li><p>Dependencies, version information, and console commands are up-to-date.</p></li>
-<li><p>Installation procedure works from a “clean-slate” <strong class="command">opam</strong> switch.</p></li>
+<li><p>Install procedure works from a “clean-slate” <strong class="command">opam</strong> switch.</p></li>
+<li><p>Remove procedure is tested and works.</p></li>
 </ul>
 </dd>
 </dl>
 </li>
-<li><p>Examples are tested and known to work.</p></li>
+<li><p>Examples are tested and work.</p></li>
 </ul>
 <div class="section" id="versioning">
 <h3>Versioning<a class="headerlink" href="#versioning" title="Permalink to this headline">¶</a></h3>
@@ -179,7 +190,7 @@
 <p><em>Does not apply to all projects.</em></p>
 <p>Contains that cannot be found in opam, either because they generally do not have <strong class="command">opam</strong> packages or because a bleeding-edge version is required that has not been released yet.</p>
 <ul class="simple">
-<li><p>Git submodules are preferred.</p></li>
+<li><p><strong class="command">git</strong> submodules are preferred.</p></li>
 </ul>
 <p><em>Rationale:</em></p>
 <ul class="simple">
@@ -206,6 +217,9 @@
 <h3><code class="file docutils literal notranslate"><span class="pre">src/</span></code><a class="headerlink" href="#src" title="Permalink to this headline">¶</a></h3>
 <p><em>Does not apply to all projects.</em></p>
 <p>Contains non-Coq source code, such as OCaml, C, JavaScript, Haskell, etc.</p>
+<ul class="simple">
+<li><p>This directory might contain its own separate build system, documentation, etc, subject to the project’s needs and appropriate separation of concerns.</p></li>
+</ul>
 <p><em>Rationale:</em></p>
 <ul class="simple">
 <li><p>It clearly identifies components not written in Coq.</p></li>
@@ -253,7 +267,7 @@
 <ul class="simple">
 <li><p>The <strong class="command">opam</strong> file must document the project’s dependencies.</p></li>
 <li><p>It should also provide build &amp; install operations.</p></li>
-<li><p>If it provides an install operation, the uninstall operation must be tested and known to work.</p></li>
+<li><p>If it provides an install operation, the uninstall operation must be tested and working.</p></li>
 </ul>
 <p>For various reasons, some projects may require more than one <strong class="command">opam</strong> file. In this case:</p>
 <ul class="simple">
@@ -262,18 +276,21 @@
 </ul>
 <p><em>Rationale:</em></p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">opam</span> <span class="pre">install</span> <span class="pre">--deps-only</span> <span class="pre">./coq-myproject.opam</span></code> works as expected.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">opam</span> <span class="pre">install</span> <span class="pre">--deps-only</span> <span class="pre">./coq-{myproject}.opam</span></code> works as expected.</p></li>
 </ul>
 </div>
 <div class="section" id="makefile">
 <h3><code class="file docutils literal notranslate"><span class="pre">Makefile</span></code><a class="headerlink" href="#makefile" title="Permalink to this headline">¶</a></h3>
-<p>Responsible for building the project. This includes:</p>
+<p>Responsible for building the project.</p>
 <ul class="simple">
-<li><p>Processing any build arguments.</p></li>
-<li><p>(Optional) Generating/updating <code class="file docutils literal notranslate"><span class="pre">_CoqProject</span></code>.</p></li>
-<li><p>Generating and invoking a sub-makefile derived from <code class="file docutils literal notranslate"><span class="pre">_CoqProject</span></code>.</p></li>
+<li><p>It must contain a header advising the user to make edits to <code class="file docutils literal notranslate"><span class="pre">Makefile.configure</span></code> instead of <code class="file docutils literal notranslate"><span class="pre">Makefile</span></code>.</p></li>
+<li><p>It must import <code class="file docutils literal notranslate"><span class="pre">Makefile.configure</span></code>, validate the user-configurable variables, and orchestrate the rest of the build.</p></li>
+<li><p>It might have functionality for generating/updating <code class="file docutils literal notranslate"><span class="pre">_CoqProject</span></code>.</p></li>
 </ul>
-<p>It must provide top-level build commands.</p>
+<p>The following command must work:</p>
+<ul class="simple">
+<li><p><code class="samp docutils literal notranslate"><span class="pre">opam</span> <span class="pre">install</span> <span class="pre">--deps-only</span> <span class="pre">./coq-</span><em><span class="pre">myproject</span></em><span class="pre">.opam</span> <span class="pre">&amp;&amp;</span> <span class="pre">make</span></code></p></li>
+</ul>
 <p><em>Rationale:</em></p>
 <ul class="simple">
 <li><p>It is compatible with <strong class="command">opam</strong>: the project’s <strong class="command">opam</strong> file should rely on <code class="file docutils literal notranslate"><span class="pre">Makefile</span></code> to perform the build &amp; install operations.</p></li>
@@ -283,6 +300,10 @@
 <h3><code class="file docutils literal notranslate"><span class="pre">Makefile.configure</span></code><a class="headerlink" href="#makefile-configure" title="Permalink to this headline">¶</a></h3>
 <p><em>Does not apply to all projects.</em></p>
 <p>Enumerates and documents the user-configurable variables used by <code class="file docutils literal notranslate"><span class="pre">Makefile</span></code>.</p>
+<ul class="simple">
+<li><p>It must provide sensible documentation for each variable.</p></li>
+<li></li>
+</ul>
 <p><em>Rationale:</em></p>
 <ul class="simple">
 <li><p>It allows users and contributors to configure their build without editing <code class="file docutils literal notranslate"><span class="pre">Makefile</span></code>.</p></li>
@@ -343,8 +364,9 @@
 <li class="toctree-l3"><a class="reference internal" href="#source-example-documentation">Source &amp; example documentation</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#continuous-integration">Continuous Integration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#dependencies">Dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#source-control">Source control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#continuous-integration">Continuous Integration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#releases">Releases</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#versioning">Versioning</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#distribution">Distribution</a></li>

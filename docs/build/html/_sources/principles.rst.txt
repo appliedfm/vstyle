@@ -8,13 +8,19 @@ Personas
 Curious person
 ~~~~~~~~~~~~~~
 
-TODO
+Examples include:
+
+* Students
+* Professionals in industry
 
 
 Researcher
 ~~~~~~~~~~
 
-TODO
+Examples include:
+
+* Academic researchers
+* Tech leads in industry
 
 
 User
@@ -32,7 +38,18 @@ TODO
 Platform maintainer
 ~~~~~~~~~~~~~~~~~~~
 
-TODO
+Examples include:
+
+* Coq Platform maintainers
+* Nix package maintainers
+
+
+Upstream maintainer
+~~~~~~~~~~~~~~~~~~~
+
+Examples include:
+
+* Coq maintainers
 
 
 Use cases
@@ -127,3 +144,8 @@ Code changes have minimal impact on downstream users
 
 TODO
 
+
+Upstream maintainers are not punished for offering to help
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+TODO

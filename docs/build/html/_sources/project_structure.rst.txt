@@ -28,17 +28,30 @@ Requirements vary by project.
 * Use `coqdoc <https://coq.inria.fr/refman/using/tools/coqdoc.html>`_, `alectryon <https://github.com/cpitclaudel/alectryon/>`_, and/or `sphinx <https://www.sphinx-doc.org>`_.
 
 
-Continuous Integration
-----------------------
-
-Use the `Coq Docker image <https://hub.docker.com/r/coqorg/coq/>`_ to `continuously test your build <https://github.com/coq-community/docker-coq/wiki/CI-setup>`_.
-
-
 Dependencies
 ------------
 
 * When possible, maintain compatibility with the `Coq Platform <https://github.com/coq/platform>`_.
 * Ensure all dependencies are accurately represented in the project's :command:`opam` file.
+
+
+Source control
+--------------
+
+Use :code:`git`.
+
+
+*Rationale:*
+
+* :code:`git` is ubiquitous in the Coq ecosystem. It is well-known by all of the personas.
+* :code:`git` submodules are widely used in the Coq ecosystem. This is particularly true for bleeding-edge development. It is wise to be compatible with this practice.
+* :code:`git` works well with :code:`opam`.
+
+
+Continuous Integration
+----------------------
+
+Use the `Coq Docker image <https://hub.docker.com/r/coqorg/coq/>`_ to `continuously test your build <https://github.com/coq-community/docker-coq/wiki/CI-setup>`_.
 
 
 Releases
@@ -55,12 +68,13 @@ Prior to release, verify the following:
    * ``opam remove``
 * The project is compatible with the most-recent release of the `Coq Platform <https://github.com/coq/platform>`_.
 * The project's "metadata" is accurate:
-   * Copyright holders, contributors, maintainers, etc, are all accurate.
+   * Copyright holders, contributors, maintainers, citations/references, etc, are all accurate.
    * The URL of the project's main website or repository is accurate.
 * The installation instructions are accurate:
    * Dependencies, version information, and console commands are up-to-date.
-   * Installation procedure works from a "clean-slate" :command:`opam` switch.
-* Examples are tested and known to work.
+   * Install procedure works from a "clean-slate" :command:`opam` switch.
+   * Remove procedure is tested and works.
+* Examples are tested and work.
 
 
 Versioning
@@ -131,7 +145,7 @@ Not every path is required; see below for additional guidance.
 
 Contains that cannot be found in opam, either because they generally do not have :command:`opam` packages or because a bleeding-edge version is required that has not been released yet.
 
-* Git submodules are preferred.
+* :command:`git` submodules are preferred.
 
 *Rationale:*
 
@@ -167,6 +181,8 @@ The directory contains subdirectories whose names end in ``Ext``. For example, s
 *Does not apply to all projects.*
 
 Contains non-Coq source code, such as OCaml, C, JavaScript, Haskell, etc.
+
+* This directory might contain its own separate build system, documentation, etc, subject to the project's needs and appropriate separation of concerns.
 
 *Rationale:*
 
@@ -222,7 +238,7 @@ For various reasons, some projects may require more than one :file:`_CoqProject`
 
 * The :command:`opam` file must document the project's dependencies.
 * It should also provide build & install operations.
-* If it provides an install operation, the uninstall operation must be tested and known to work.
+* If it provides an install operation, the uninstall operation must be tested and working.
 
 For various reasons, some projects may require more than one :command:`opam` file. In this case:
 
@@ -231,19 +247,21 @@ For various reasons, some projects may require more than one :command:`opam` fil
 
 *Rationale:*
 
-* ``opam install --deps-only ./coq-myproject.opam`` works as expected.
+* ``opam install --deps-only ./coq-{myproject}.opam`` works as expected.
 
 
 :file:`Makefile`
 ~~~~~~~~~~~~~~~~
 
-Responsible for building the project. This includes:
+Responsible for building the project.
 
-* Processing any build arguments.
-* (Optional) Generating/updating :file:`_CoqProject`.
-* Generating and invoking a sub-makefile derived from :file:`_CoqProject`.
+* It must contain a header advising the user to make edits to :file:`Makefile.configure` instead of :file:`Makefile`.
+* It must import :file:`Makefile.configure`, validate the user-configurable variables, and orchestrate the rest of the build.
+* It might have functionality for generating/updating :file:`_CoqProject`.
 
-It must provide top-level build commands.
+The following command must work:
+
+* :samp:`opam install --deps-only ./coq-{myproject}.opam && make`
 
 *Rationale:*
 
@@ -256,6 +274,9 @@ It must provide top-level build commands.
 *Does not apply to all projects.*
 
 Enumerates and documents the user-configurable variables used by :file:`Makefile`.
+
+* It must provide sensible documentation for each variable.
+* 
 
 *Rationale:*
 
