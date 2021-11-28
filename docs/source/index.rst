@@ -1,6 +1,8 @@
 Style Guide for Coq
 ===================
 
+Published by `applied.fm <https://applied.fm>`_.
+
 This is a work in progress! We welcome feedback and pull requests. `Find us on GitHub <https://github.com/appliedfm/vstyle>`_.
 
 
