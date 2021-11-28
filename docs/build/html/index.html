@@ -95,6 +95,7 @@
 <li class="toctree-l2"><a class="reference internal" href="formatting.html#line-length">Line length</a></li>
 <li class="toctree-l2"><a class="reference internal" href="formatting.html#indentation">Indentation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="formatting.html#non-ascii-characters">Non-ASCII characters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="formatting.html#notation"><code class="docutils literal notranslate"><span class="pre">Notation</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="naming_conventions.html">Naming conventions</a><ul>
@@ -133,22 +134,63 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="types.html">Types</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="types.html#numeric-types">Numeric types</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="types.html#nat-pos-n-z-q"><code class="docutils literal notranslate"><span class="pre">nat</span></code>, <code class="docutils literal notranslate"><span class="pre">pos</span></code>, <code class="docutils literal notranslate"><span class="pre">N</span></code>, <code class="docutils literal notranslate"><span class="pre">Z</span></code>, <code class="docutils literal notranslate"><span class="pre">Q</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="types.html#fin-t"><code class="docutils literal notranslate"><span class="pre">Fin.t</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="types.html#primitive-objects">Primitive objects</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="types.html#int"><code class="docutils literal notranslate"><span class="pre">int</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="types.html#float"><code class="docutils literal notranslate"><span class="pre">float</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="types.html#array"><code class="docutils literal notranslate"><span class="pre">array</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="types.html#string-types">String types</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="types.html#ascii"><code class="docutils literal notranslate"><span class="pre">ascii</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="types.html#string"><code class="docutils literal notranslate"><span class="pre">string</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="types.html#byte"><code class="docutils literal notranslate"><span class="pre">byte</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="types.html#bytevector"><code class="docutils literal notranslate"><span class="pre">ByteVector</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="types.html#sum-types">Sum types</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="types.html#variant"><code class="docutils literal notranslate"><span class="pre">Variant</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="types.html#inductive"><code class="docutils literal notranslate"><span class="pre">Inductive</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="types.html#coinductive"><code class="docutils literal notranslate"><span class="pre">CoInductive</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="types.html#sum-or"><code class="docutils literal notranslate"><span class="pre">sum</span></code>, <code class="docutils literal notranslate"><span class="pre">or</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="types.html#sum-or"><code class="docutils literal notranslate"><span class="pre">sum</span></code>, <code class="docutils literal notranslate"><span class="pre">or</span></code> (<code class="docutils literal notranslate"><span class="pre">\/</span></code>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="types.html#option-sumor"><code class="docutils literal notranslate"><span class="pre">option</span></code>, <code class="docutils literal notranslate"><span class="pre">sumor</span></code> (<code class="docutils literal notranslate"><span class="pre">...</span> <span class="pre">+</span> <span class="pre">{</span> <span class="pre">...</span> <span class="pre">}</span></code>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="types.html#bool-sumbool"><code class="docutils literal notranslate"><span class="pre">bool</span></code>, <code class="docutils literal notranslate"><span class="pre">sumbool</span></code> (<code class="docutils literal notranslate"><span class="pre">{</span> <span class="pre">...</span> <span class="pre">}</span> <span class="pre">+</span> <span class="pre">{</span> <span class="pre">~</span> <span class="pre">...</span> <span class="pre">}</span></code>)</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="types.html#product-types">Product types</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="types.html#record-structure"><code class="docutils literal notranslate"><span class="pre">Record</span></code>, <code class="docutils literal notranslate"><span class="pre">Structure</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="types.html#prod-sigma-and-ex"><code class="docutils literal notranslate"><span class="pre">prod</span></code>, <code class="docutils literal notranslate"><span class="pre">sigma</span></code>, <code class="docutils literal notranslate"><span class="pre">and</span></code>, <code class="docutils literal notranslate"><span class="pre">ex</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="types.html#prod-sigma-and-ex"><code class="docutils literal notranslate"><span class="pre">prod</span></code>, <code class="docutils literal notranslate"><span class="pre">sigma</span></code>, <code class="docutils literal notranslate"><span class="pre">and</span></code> (<code class="docutils literal notranslate"><span class="pre">/\</span></code>), <code class="docutils literal notranslate"><span class="pre">ex</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="types.html#containers">Containers</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="types.html#list"><code class="docutils literal notranslate"><span class="pre">list</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="types.html#vectordef-t"><code class="docutils literal notranslate"><span class="pre">VectorDef.t</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="types.html#msets">MSets</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="types.html#typeclasses-and-canonical-structures">Typeclasses and canonical structures</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="types.html#class"><code class="docutils literal notranslate"><span class="pre">Class</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="types.html#instance"><code class="docutils literal notranslate"><span class="pre">Instance</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="types.html#canonical-structure"><code class="docutils literal notranslate"><span class="pre">Canonical</span> <span class="pre">Structure</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="types.html#inheritance-and-coercion">Inheritance and <code class="docutils literal notranslate"><span class="pre">Coercion</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="types.html#boxed-and-unboxed-representations">Boxed and unboxed representations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="types.html#universes">Universes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="types.html#universe-polymorphism">Universe polymorphism</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="types.html#common-classes-structures">Common classes &amp; structures</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="types.html#coq-classes-decidableclass"><code class="docutils literal notranslate"><span class="pre">Coq.Classes.DecidableClass</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="types.html#coq-classes-equivdec"><code class="docutils literal notranslate"><span class="pre">Coq.Classes.EquivDec</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="types.html#coq-classes-relationclasses"><code class="docutils literal notranslate"><span class="pre">Coq.Classes.RelationClasses</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="types.html#coq-classes-setoidclass"><code class="docutils literal notranslate"><span class="pre">Coq.Classes.SetoidClass</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="types.html#coq-classes-setoiddec"><code class="docutils literal notranslate"><span class="pre">Coq.Classes.SetoidDec</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="types.html#extlib-structures-monad"><code class="docutils literal notranslate"><span class="pre">ExtLib.Structures.Monad</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -163,7 +205,7 @@
 <li class="toctree-l2"><a class="reference internal" href="ltac.html#destruct-patterns">Destruct patterns</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ltac.html#defining-custom-tactics">Defining custom tactics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ltac.html#guidance-on-specific-tactics">Guidance on specific tactics</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="ltac.html#intro-intros-revert-rename-clear"><code class="docutils literal notranslate"><span class="pre">intro</span></code>, <code class="docutils literal notranslate"><span class="pre">intros</span></code>, <code class="docutils literal notranslate"><span class="pre">revert</span></code>, <code class="docutils literal notranslate"><span class="pre">rename</span></code>, <code class="docutils literal notranslate"><span class="pre">clear</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="ltac.html#intros-revert-rename-clear"><code class="docutils literal notranslate"><span class="pre">intros</span></code>, <code class="docutils literal notranslate"><span class="pre">revert</span></code>, <code class="docutils literal notranslate"><span class="pre">rename</span></code>, <code class="docutils literal notranslate"><span class="pre">clear</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="ltac.html#admit-give-up"><code class="docutils literal notranslate"><span class="pre">admit</span></code>, <code class="docutils literal notranslate"><span class="pre">give_up</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="ltac.html#easy-now-assumption-trivial"><code class="docutils literal notranslate"><span class="pre">easy</span></code>, <code class="docutils literal notranslate"><span class="pre">now</span></code>, <code class="docutils literal notranslate"><span class="pre">assumption</span></code>, <code class="docutils literal notranslate"><span class="pre">trivial</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="ltac.html#try"><code class="docutils literal notranslate"><span class="pre">try</span></code></a></li>
@@ -186,6 +228,9 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="extraction_ocaml.html">Extraction to OCaml</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extraction_haskell.html">Extraction to Haskell</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extraction_c.html">Extraction to C</a></li>
 </ul>
 </div>
 </div>
@@ -216,6 +261,9 @@
 <li class="toctree-l1"><a class="reference internal" href="definitions.html">Definitions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="types.html">Types</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ltac.html">Ltac</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extraction_ocaml.html">Extraction to OCaml</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extraction_haskell.html">Extraction to Haskell</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extraction_c.html">Extraction to C</a></li>
 </ul>
 
 <div class="relations">

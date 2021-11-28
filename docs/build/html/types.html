@@ -32,6 +32,59 @@
             
   <div class="section" id="types">
 <h1>Types<a class="headerlink" href="#types" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="numeric-types">
+<h2>Numeric types<a class="headerlink" href="#numeric-types" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="nat-pos-n-z-q">
+<h3><code class="docutils literal notranslate"><span class="pre">nat</span></code>, <code class="docutils literal notranslate"><span class="pre">pos</span></code>, <code class="docutils literal notranslate"><span class="pre">N</span></code>, <code class="docutils literal notranslate"><span class="pre">Z</span></code>, <code class="docutils literal notranslate"><span class="pre">Q</span></code><a class="headerlink" href="#nat-pos-n-z-q" title="Permalink to this headline">¶</a></h3>
+<p>TODO</p>
+</div>
+<div class="section" id="fin-t">
+<h3><code class="docutils literal notranslate"><span class="pre">Fin.t</span></code><a class="headerlink" href="#fin-t" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Import via <code class="docutils literal notranslate"><span class="pre">From</span> <span class="pre">Coq</span> <span class="pre">Require</span> <span class="pre">Import</span> <span class="pre">Vectors.Vector.</span></code></p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="primitive-objects">
+<h2>Primitive objects<a class="headerlink" href="#primitive-objects" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="int">
+<h3><code class="docutils literal notranslate"><span class="pre">int</span></code><a class="headerlink" href="#int" title="Permalink to this headline">¶</a></h3>
+<p>TODO</p>
+</div>
+<div class="section" id="float">
+<h3><code class="docutils literal notranslate"><span class="pre">float</span></code><a class="headerlink" href="#float" title="Permalink to this headline">¶</a></h3>
+<p>TODO</p>
+</div>
+<div class="section" id="array">
+<h3><code class="docutils literal notranslate"><span class="pre">array</span></code><a class="headerlink" href="#array" title="Permalink to this headline">¶</a></h3>
+<p>TODO</p>
+</div>
+</div>
+<div class="section" id="string-types">
+<h2>String types<a class="headerlink" href="#string-types" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="ascii">
+<h3><code class="docutils literal notranslate"><span class="pre">ascii</span></code><a class="headerlink" href="#ascii" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Import via <code class="docutils literal notranslate"><span class="pre">From</span> <span class="pre">Coq</span> <span class="pre">Require</span> <span class="pre">Import</span> <span class="pre">Strings.Ascii.</span></code></p></li>
+</ul>
+</div>
+<div class="section" id="string">
+<h3><code class="docutils literal notranslate"><span class="pre">string</span></code><a class="headerlink" href="#string" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Import via <code class="docutils literal notranslate"><span class="pre">From</span> <span class="pre">Coq</span> <span class="pre">Require</span> <span class="pre">Import</span> <span class="pre">Strings.String.</span></code></p></li>
+</ul>
+</div>
+<div class="section" id="byte">
+<h3><code class="docutils literal notranslate"><span class="pre">byte</span></code><a class="headerlink" href="#byte" title="Permalink to this headline">¶</a></h3>
+<p>TODO</p>
+</div>
+<div class="section" id="bytevector">
+<h3><code class="docutils literal notranslate"><span class="pre">ByteVector</span></code><a class="headerlink" href="#bytevector" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Import via <code class="docutils literal notranslate"><span class="pre">From</span> <span class="pre">Coq</span> <span class="pre">Require</span> <span class="pre">Import</span> <span class="pre">Strings.ByteVector.</span></code></p></li>
+</ul>
+</div>
+</div>
 <div class="section" id="sum-types">
 <h2>Sum types<a class="headerlink" href="#sum-types" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="variant">
@@ -47,7 +100,15 @@
 <p>TODO</p>
 </div>
 <div class="section" id="sum-or">
-<h3><code class="docutils literal notranslate"><span class="pre">sum</span></code>, <code class="docutils literal notranslate"><span class="pre">or</span></code><a class="headerlink" href="#sum-or" title="Permalink to this headline">¶</a></h3>
+<h3><code class="docutils literal notranslate"><span class="pre">sum</span></code>, <code class="docutils literal notranslate"><span class="pre">or</span></code> (<code class="docutils literal notranslate"><span class="pre">\/</span></code>)<a class="headerlink" href="#sum-or" title="Permalink to this headline">¶</a></h3>
+<p>TODO</p>
+</div>
+<div class="section" id="option-sumor">
+<h3><code class="docutils literal notranslate"><span class="pre">option</span></code>, <code class="docutils literal notranslate"><span class="pre">sumor</span></code> (<code class="docutils literal notranslate"><span class="pre">...</span> <span class="pre">+</span> <span class="pre">{</span> <span class="pre">...</span> <span class="pre">}</span></code>)<a class="headerlink" href="#option-sumor" title="Permalink to this headline">¶</a></h3>
+<p>TODO</p>
+</div>
+<div class="section" id="bool-sumbool">
+<h3><code class="docutils literal notranslate"><span class="pre">bool</span></code>, <code class="docutils literal notranslate"><span class="pre">sumbool</span></code> (<code class="docutils literal notranslate"><span class="pre">{</span> <span class="pre">...</span> <span class="pre">}</span> <span class="pre">+</span> <span class="pre">{</span> <span class="pre">~</span> <span class="pre">...</span> <span class="pre">}</span></code>)<a class="headerlink" href="#bool-sumbool" title="Permalink to this headline">¶</a></h3>
 <p>TODO</p>
 </div>
 </div>
@@ -58,8 +119,29 @@
 <p>TODO</p>
 </div>
 <div class="section" id="prod-sigma-and-ex">
-<h3><code class="docutils literal notranslate"><span class="pre">prod</span></code>, <code class="docutils literal notranslate"><span class="pre">sigma</span></code>, <code class="docutils literal notranslate"><span class="pre">and</span></code>, <code class="docutils literal notranslate"><span class="pre">ex</span></code><a class="headerlink" href="#prod-sigma-and-ex" title="Permalink to this headline">¶</a></h3>
+<h3><code class="docutils literal notranslate"><span class="pre">prod</span></code>, <code class="docutils literal notranslate"><span class="pre">sigma</span></code>, <code class="docutils literal notranslate"><span class="pre">and</span></code> (<code class="docutils literal notranslate"><span class="pre">/\</span></code>), <code class="docutils literal notranslate"><span class="pre">ex</span></code><a class="headerlink" href="#prod-sigma-and-ex" title="Permalink to this headline">¶</a></h3>
 <p>TODO</p>
+</div>
+</div>
+<div class="section" id="containers">
+<h2>Containers<a class="headerlink" href="#containers" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="list">
+<h3><code class="docutils literal notranslate"><span class="pre">list</span></code><a class="headerlink" href="#list" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Import via <code class="docutils literal notranslate"><span class="pre">From</span> <span class="pre">Coq</span> <span class="pre">Require</span> <span class="pre">Import</span> <span class="pre">Lists.List.</span></code></p></li>
+</ul>
+</div>
+<div class="section" id="vectordef-t">
+<h3><code class="docutils literal notranslate"><span class="pre">VectorDef.t</span></code><a class="headerlink" href="#vectordef-t" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Import via <code class="docutils literal notranslate"><span class="pre">From</span> <span class="pre">Coq</span> <span class="pre">Require</span> <span class="pre">Import</span> <span class="pre">Vectors.Vector.</span></code></p></li>
+</ul>
+</div>
+<div class="section" id="msets">
+<h3>MSets<a class="headerlink" href="#msets" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Import via <code class="docutils literal notranslate"><span class="pre">From</span> <span class="pre">Coq</span> <span class="pre">Require</span> <span class="pre">Import</span> <span class="pre">MSets.MSetRBT.</span></code></p></li>
+</ul>
 </div>
 </div>
 <div class="section" id="typeclasses-and-canonical-structures">
@@ -75,6 +157,73 @@
 <div class="section" id="canonical-structure">
 <h3><code class="docutils literal notranslate"><span class="pre">Canonical</span> <span class="pre">Structure</span></code><a class="headerlink" href="#canonical-structure" title="Permalink to this headline">¶</a></h3>
 <p>TODO</p>
+</div>
+</div>
+<div class="section" id="inheritance-and-coercion">
+<h2>Inheritance and <code class="docutils literal notranslate"><span class="pre">Coercion</span></code><a class="headerlink" href="#inheritance-and-coercion" title="Permalink to this headline">¶</a></h2>
+<p>TODO</p>
+</div>
+<div class="section" id="boxed-and-unboxed-representations">
+<h2>Boxed and unboxed representations<a class="headerlink" href="#boxed-and-unboxed-representations" title="Permalink to this headline">¶</a></h2>
+<p>TODO</p>
+</div>
+<div class="section" id="universes">
+<h2>Universes<a class="headerlink" href="#universes" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="universe-polymorphism">
+<h3>Universe polymorphism<a class="headerlink" href="#universe-polymorphism" title="Permalink to this headline">¶</a></h3>
+<p>TODO</p>
+</div>
+</div>
+<div class="section" id="common-classes-structures">
+<h2>Common classes &amp; structures<a class="headerlink" href="#common-classes-structures" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="coq-classes-decidableclass">
+<h3><code class="docutils literal notranslate"><span class="pre">Coq.Classes.DecidableClass</span></code><a class="headerlink" href="#coq-classes-decidableclass" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Decidable</span></code></p></li>
+</ul>
+</div>
+<div class="section" id="coq-classes-equivdec">
+<h3><code class="docutils literal notranslate"><span class="pre">Coq.Classes.EquivDec</span></code><a class="headerlink" href="#coq-classes-equivdec" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">DecidableEquivalence</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">EqDec</span></code></p></li>
+</ul>
+</div>
+<div class="section" id="coq-classes-relationclasses">
+<h3><code class="docutils literal notranslate"><span class="pre">Coq.Classes.RelationClasses</span></code><a class="headerlink" href="#coq-classes-relationclasses" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Reflexive</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Irreflexive</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Symmetric</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Asymmetric</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Transitive</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PreOrder</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">StrictOrder</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PER</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Equivalence</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Antisymmetric</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">subrelation</span></code></p></li>
+</ul>
+</div>
+<div class="section" id="coq-classes-setoidclass">
+<h3><code class="docutils literal notranslate"><span class="pre">Coq.Classes.SetoidClass</span></code><a class="headerlink" href="#coq-classes-setoidclass" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Setoid</span></code></p></li>
+</ul>
+</div>
+<div class="section" id="coq-classes-setoiddec">
+<h3><code class="docutils literal notranslate"><span class="pre">Coq.Classes.SetoidDec</span></code><a class="headerlink" href="#coq-classes-setoiddec" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">DecidableSetoid</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">EqDec</span></code></p></li>
+</ul>
+</div>
+<div class="section" id="extlib-structures-monad">
+<h3><code class="docutils literal notranslate"><span class="pre">ExtLib.Structures.Monad</span></code><a class="headerlink" href="#extlib-structures-monad" title="Permalink to this headline">¶</a></h3>
+<p><em>Note:</em> This is part of the <a class="reference external" href="https://github.com/coq-community/coq-ext-lib/">ExtLib library</a>.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Monad</span></code></p></li>
+</ul>
 </div>
 </div>
 </div>
@@ -103,16 +252,42 @@
 <li class="toctree-l1"><a class="reference internal" href="scope_management.html">Scope management</a></li>
 <li class="toctree-l1"><a class="reference internal" href="definitions.html">Definitions</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Types</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#numeric-types">Numeric types</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#nat-pos-n-z-q"><code class="docutils literal notranslate"><span class="pre">nat</span></code>, <code class="docutils literal notranslate"><span class="pre">pos</span></code>, <code class="docutils literal notranslate"><span class="pre">N</span></code>, <code class="docutils literal notranslate"><span class="pre">Z</span></code>, <code class="docutils literal notranslate"><span class="pre">Q</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#fin-t"><code class="docutils literal notranslate"><span class="pre">Fin.t</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#primitive-objects">Primitive objects</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#int"><code class="docutils literal notranslate"><span class="pre">int</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#float"><code class="docutils literal notranslate"><span class="pre">float</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#array"><code class="docutils literal notranslate"><span class="pre">array</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#string-types">String types</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#ascii"><code class="docutils literal notranslate"><span class="pre">ascii</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#string"><code class="docutils literal notranslate"><span class="pre">string</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#byte"><code class="docutils literal notranslate"><span class="pre">byte</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bytevector"><code class="docutils literal notranslate"><span class="pre">ByteVector</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#sum-types">Sum types</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#variant"><code class="docutils literal notranslate"><span class="pre">Variant</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#inductive"><code class="docutils literal notranslate"><span class="pre">Inductive</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#coinductive"><code class="docutils literal notranslate"><span class="pre">CoInductive</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#sum-or"><code class="docutils literal notranslate"><span class="pre">sum</span></code>, <code class="docutils literal notranslate"><span class="pre">or</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sum-or"><code class="docutils literal notranslate"><span class="pre">sum</span></code>, <code class="docutils literal notranslate"><span class="pre">or</span></code> (<code class="docutils literal notranslate"><span class="pre">\/</span></code>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#option-sumor"><code class="docutils literal notranslate"><span class="pre">option</span></code>, <code class="docutils literal notranslate"><span class="pre">sumor</span></code> (<code class="docutils literal notranslate"><span class="pre">...</span> <span class="pre">+</span> <span class="pre">{</span> <span class="pre">...</span> <span class="pre">}</span></code>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bool-sumbool"><code class="docutils literal notranslate"><span class="pre">bool</span></code>, <code class="docutils literal notranslate"><span class="pre">sumbool</span></code> (<code class="docutils literal notranslate"><span class="pre">{</span> <span class="pre">...</span> <span class="pre">}</span> <span class="pre">+</span> <span class="pre">{</span> <span class="pre">~</span> <span class="pre">...</span> <span class="pre">}</span></code>)</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#product-types">Product types</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#record-structure"><code class="docutils literal notranslate"><span class="pre">Record</span></code>, <code class="docutils literal notranslate"><span class="pre">Structure</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#prod-sigma-and-ex"><code class="docutils literal notranslate"><span class="pre">prod</span></code>, <code class="docutils literal notranslate"><span class="pre">sigma</span></code>, <code class="docutils literal notranslate"><span class="pre">and</span></code>, <code class="docutils literal notranslate"><span class="pre">ex</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#prod-sigma-and-ex"><code class="docutils literal notranslate"><span class="pre">prod</span></code>, <code class="docutils literal notranslate"><span class="pre">sigma</span></code>, <code class="docutils literal notranslate"><span class="pre">and</span></code> (<code class="docutils literal notranslate"><span class="pre">/\</span></code>), <code class="docutils literal notranslate"><span class="pre">ex</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#containers">Containers</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#list"><code class="docutils literal notranslate"><span class="pre">list</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vectordef-t"><code class="docutils literal notranslate"><span class="pre">VectorDef.t</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#msets">MSets</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#typeclasses-and-canonical-structures">Typeclasses and canonical structures</a><ul>
@@ -121,9 +296,27 @@
 <li class="toctree-l3"><a class="reference internal" href="#canonical-structure"><code class="docutils literal notranslate"><span class="pre">Canonical</span> <span class="pre">Structure</span></code></a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#inheritance-and-coercion">Inheritance and <code class="docutils literal notranslate"><span class="pre">Coercion</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#boxed-and-unboxed-representations">Boxed and unboxed representations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#universes">Universes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#universe-polymorphism">Universe polymorphism</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#common-classes-structures">Common classes &amp; structures</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#coq-classes-decidableclass"><code class="docutils literal notranslate"><span class="pre">Coq.Classes.DecidableClass</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coq-classes-equivdec"><code class="docutils literal notranslate"><span class="pre">Coq.Classes.EquivDec</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coq-classes-relationclasses"><code class="docutils literal notranslate"><span class="pre">Coq.Classes.RelationClasses</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coq-classes-setoidclass"><code class="docutils literal notranslate"><span class="pre">Coq.Classes.SetoidClass</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coq-classes-setoiddec"><code class="docutils literal notranslate"><span class="pre">Coq.Classes.SetoidDec</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#extlib-structures-monad"><code class="docutils literal notranslate"><span class="pre">ExtLib.Structures.Monad</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="ltac.html">Ltac</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extraction_ocaml.html">Extraction to OCaml</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extraction_haskell.html">Extraction to Haskell</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extraction_c.html">Extraction to C</a></li>
 </ul>
 
 <div class="relations">

@@ -18,3 +18,6 @@ Table of Contents
    definitions
    types
    ltac
+   extraction_ocaml
+   extraction_haskell
+   extraction_c

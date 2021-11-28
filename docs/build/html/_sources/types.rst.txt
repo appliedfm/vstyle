@@ -2,6 +2,69 @@ Types
 =====
 
 
+Numeric types
+-------------
+
+``nat``, ``pos``, ``N``, ``Z``, ``Q``
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+TODO
+
+
+``Fin.t``
+~~~~~~~~~
+
+* Import via ``From Coq Require Import Vectors.Vector.``
+
+
+Primitive objects
+-----------------
+
+``int``
+~~~~~~~
+
+TODO
+
+
+``float``
+~~~~~~~~~
+
+TODO
+
+
+``array``
+~~~~~~~~~
+
+TODO
+
+
+String types
+------------
+
+``ascii``
+~~~~~~~~~
+
+* Import via ``From Coq Require Import Strings.Ascii.``
+
+
+``string``
+~~~~~~~~~~
+
+* Import via ``From Coq Require Import Strings.String.``
+
+
+``byte``
+~~~~~~~~
+
+TODO
+
+
+``ByteVector``
+~~~~~~~~~~~~~~
+
+* Import via ``From Coq Require Import Strings.ByteVector.``
+
+
 Sum types
 ---------
 
@@ -23,8 +86,20 @@ TODO
 TODO
 
 
-``sum``, ``or``
-~~~~~~~~~~~~~~~
+``sum``, ``or`` (``\/``)
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+TODO
+
+
+``option``, ``sumor`` (``... + { ... }``)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+TODO
+
+
+``bool``, ``sumbool`` (``{ ... } + { ~ ... }``)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 TODO
 
@@ -35,14 +110,34 @@ Product types
 ``Record``, ``Structure``
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
+TODO
+
+
+``prod``, ``sigma``, ``and`` (``/\``), ``ex``
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 TODO
 
 
-``prod``, ``sigma``, ``and``, ``ex``
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Containers
+----------
 
-TODO
+``list``
+~~~~~~~~
+
+* Import via ``From Coq Require Import Lists.List.``
+
+
+``VectorDef.t``
+~~~~~~~~~~~~~~~
+
+* Import via ``From Coq Require Import Vectors.Vector.``
+
+
+MSets
+~~~~~
+
+* Import via ``From Coq Require Import MSets.MSetRBT.``
 
 
 Typeclasses and canonical structures
@@ -64,3 +159,77 @@ TODO
 ~~~~~~~~~~~~~~~~~~~~~~~
 
 TODO
+
+
+Inheritance and ``Coercion``
+----------------------------
+
+TODO
+
+
+Boxed and unboxed representations
+---------------------------------
+
+TODO
+
+
+Universes
+---------
+
+Universe polymorphism
+~~~~~~~~~~~~~~~~~~~~~
+
+TODO
+
+
+Common classes & structures
+------------------------------
+
+``Coq.Classes.DecidableClass``
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+* ``Decidable``
+
+
+``Coq.Classes.EquivDec``
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+* ``DecidableEquivalence``
+* ``EqDec``
+
+
+``Coq.Classes.RelationClasses``
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+* ``Reflexive``
+* ``Irreflexive``
+* ``Symmetric``
+* ``Asymmetric``
+* ``Transitive``
+* ``PreOrder``
+* ``StrictOrder``
+* ``PER``
+* ``Equivalence``
+* ``Antisymmetric``
+* ``subrelation``
+
+
+``Coq.Classes.SetoidClass``
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+* ``Setoid``
+
+
+``Coq.Classes.SetoidDec``
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+* ``DecidableSetoid``
+* ``EqDec``
+
+
+``ExtLib.Structures.Monad``
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+*Note:* This is part of the `ExtLib library <https://github.com/coq-community/coq-ext-lib/>`_.
+
+* ``Monad``
