@@ -1,8 +1,6 @@
-# vstyle
+# vstyle: the [applied.fm](https://applied.fm) Style Guide for Coq
 
-The [applied.fm](https://applied.fm) Style Guide for Coq.
-
-Latest version can be found at [vstyle.readthedocs.io](https://vstyle.readthedocs.io).
+The latest version can be viewed online at [vstyle.readthedocs.io](https://vstyle.readthedocs.io).
 
 
 ## Building
