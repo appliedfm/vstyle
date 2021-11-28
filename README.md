@@ -1,6 +1,6 @@
 # vstyle: A style guide for Coq
 
-The latest version can be viewed online at [vstyle.readthedocs.io](https://vstyle.readthedocs.io).
+The latest version can be viewed at [vstyle.readthedocs.io](https://vstyle.readthedocs.io).
 
 
 ## Building
