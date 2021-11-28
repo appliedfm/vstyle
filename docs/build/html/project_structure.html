@@ -1,0 +1,263 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Project structure &#8212; vstyle  documentation</title>
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Formatting" href="formatting.html" />
+    <link rel="prev" title="Principles" href="principles.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="project-structure">
+<h1>Project structure<a class="headerlink" href="#project-structure" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="documentation">
+<h2>Documentation<a class="headerlink" href="#documentation" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="coqdoc">
+<h3><code class="docutils literal notranslate"><span class="pre">coqdoc</span></code><a class="headerlink" href="#coqdoc" title="Permalink to this headline">¶</a></h3>
+<p>TODO</p>
+</div>
+<div class="section" id="alectryon">
+<h3><code class="docutils literal notranslate"><span class="pre">alectryon</span></code><a class="headerlink" href="#alectryon" title="Permalink to this headline">¶</a></h3>
+<p>TODO</p>
+</div>
+</div>
+<div class="section" id="continuous-integration">
+<h2>Continuous Integration<a class="headerlink" href="#continuous-integration" title="Permalink to this headline">¶</a></h2>
+<p>TODO</p>
+</div>
+<div class="section" id="dependencies">
+<h2>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Maintain compatibility with the <a class="reference external" href="https://github.com/coq/platform">Coq Platform</a>.</p></li>
+</ul>
+</div>
+<div class="section" id="layout">
+<h2>Layout<a class="headerlink" href="#layout" title="Permalink to this headline">¶</a></h2>
+<p>The following directory structure is recommended:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">dep/</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">docs/</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ext/</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">src/</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">examples/</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">theories/</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">_CoqProject</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">coq-myproject.opam</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Makefile</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CONTRIBUTING.md</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">LICENSE.md</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">README.md</span></code></p></li>
+</ul>
+<div class="section" id="dep">
+<h3><code class="docutils literal notranslate"><span class="pre">dep/</span></code><a class="headerlink" href="#dep" title="Permalink to this headline">¶</a></h3>
+<p>Does not apply to all projects.</p>
+<p>Contains Git submodules for dependencies that cannot be found in opam, either because they generally do not have opam packages or because a bleeding-edge version is required that has not been released yet.</p>
+<p>This convention achieves the following:</p>
+<ul class="simple">
+<li><p>It gives sensible results when used with <code class="docutils literal notranslate"><span class="pre">-Q</span></code> as in <code class="docutils literal notranslate"><span class="pre">-Q</span> <span class="pre">dep/MyDep</span> <span class="pre">MyDep</span></code></p></li>
+</ul>
+</div>
+<div class="section" id="docs">
+<h3><code class="docutils literal notranslate"><span class="pre">docs/</span></code><a class="headerlink" href="#docs" title="Permalink to this headline">¶</a></h3>
+<p>Contains project documentation.</p>
+</div>
+<div class="section" id="ext">
+<h3><code class="docutils literal notranslate"><span class="pre">ext/</span></code><a class="headerlink" href="#ext" title="Permalink to this headline">¶</a></h3>
+<p>Does not apply to all projects.</p>
+<p>Contains definitions that “extend” dependencies with additional instances, lemmas, etc.</p>
+<p>The directory contains subdirectories whose names end in <code class="docutils literal notranslate"><span class="pre">Ext</span></code>. For example, suppose one requires a lemma about lists that is not present in the standard Coq library. In this case, the lemma would be stored somewhere within <code class="docutils literal notranslate"><span class="pre">ext/CoqExt/</span></code>.</p>
+<p>This convention achieves the following:</p>
+<ul class="simple">
+<li><p>It gives sensible results when used with <code class="docutils literal notranslate"><span class="pre">-Q</span></code> as in <code class="docutils literal notranslate"><span class="pre">-Q</span> <span class="pre">ext/MyDepExt</span> <span class="pre">MyDepExt</span></code></p></li>
+<li><p>It clearly identifies components that should be upstreamed.</p></li>
+</ul>
+</div>
+<div class="section" id="src">
+<h3><code class="docutils literal notranslate"><span class="pre">src/</span></code><a class="headerlink" href="#src" title="Permalink to this headline">¶</a></h3>
+<p>Does not apply to all projects.</p>
+<p>Contains non-Coq source code. Many projects include source in languages such as OCaml, C, JavaScript, Haskell, etc. These source files should be stored here.</p>
+<p>This convention achieves the following:</p>
+<ul class="simple">
+<li><p>It clearly identifies components not written in Coq.</p></li>
+</ul>
+</div>
+<div class="section" id="examples">
+<h3><code class="docutils literal notranslate"><span class="pre">examples/</span></code><a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h3>
+<p>Most software projects include examples of one kind or another. These should be stored here.</p>
+<p>This convention achieves the following:</p>
+<ul class="simple">
+<li><p>It clearly identifies examples as being examples (and not components of the main development).</p></li>
+<li><p>It gives sensible results when used with <code class="docutils literal notranslate"><span class="pre">-Q</span></code> as in <code class="docutils literal notranslate"><span class="pre">-Q</span> <span class="pre">examples/</span> <span class="pre">MyProject.Examples</span></code></p></li>
+</ul>
+</div>
+<div class="section" id="theories">
+<h3><code class="docutils literal notranslate"><span class="pre">theories/</span></code><a class="headerlink" href="#theories" title="Permalink to this headline">¶</a></h3>
+<p>This is where the main Coq development is stored.</p>
+<p>This convention achieves the following:</p>
+<ul class="simple">
+<li><p>It gives sensible results when used with <code class="docutils literal notranslate"><span class="pre">-Q</span></code> as in <code class="docutils literal notranslate"><span class="pre">-Q</span> <span class="pre">theories/</span> <span class="pre">MyProject</span></code></p></li>
+</ul>
+</div>
+<div class="section" id="coqproject">
+<h3><code class="docutils literal notranslate"><span class="pre">_CoqProject</span></code><a class="headerlink" href="#coqproject" title="Permalink to this headline">¶</a></h3>
+<p>This file should:</p>
+<ul class="simple">
+<li><p>Map <code class="docutils literal notranslate"><span class="pre">dep</span></code>, <code class="docutils literal notranslate"><span class="pre">ext</span></code>, <code class="docutils literal notranslate"><span class="pre">theories</span></code>, and <code class="docutils literal notranslate"><span class="pre">examples</span></code> into the search path.</p></li>
+<li><p>Enumerate the files in <code class="docutils literal notranslate"><span class="pre">ext</span></code>, <code class="docutils literal notranslate"><span class="pre">theories</span></code>, and <code class="docutils literal notranslate"><span class="pre">examples</span></code>.</p></li>
+</ul>
+<p>This convention achieves the following:</p>
+<ul class="simple">
+<li><p>The generated makefile will build all of the examples.</p></li>
+<li><p>CoqIDE, vscode, and others behave as expected.</p></li>
+</ul>
+</div>
+<div class="section" id="coq-myproject-opam">
+<h3><code class="docutils literal notranslate"><span class="pre">coq-myproject.opam</span></code><a class="headerlink" href="#coq-myproject-opam" title="Permalink to this headline">¶</a></h3>
+<p>Opam is the preferred method of managing dependencies in the Coq ecosystem. Even if your project is not published to the opam repository, the presence of an opam file in your project will be useful to downstream users.</p>
+<p>Your opam file should document your project’s dependencies at a minimum. It should also provide build &amp; install operations, particularly if you want to encourage others to build on your work.</p>
+<p>This convention achieves the following:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">opam</span> <span class="pre">install</span> <span class="pre">--deps-only</span> <span class="pre">./coq-myproject.opam</span></code> works as expected.</p></li>
+</ul>
+</div>
+<div class="section" id="makefile">
+<h3><code class="docutils literal notranslate"><span class="pre">Makefile</span></code><a class="headerlink" href="#makefile" title="Permalink to this headline">¶</a></h3>
+<p>Responsible for building the project. This includes:</p>
+<ul class="simple">
+<li><p>Processing any build arguments.</p></li>
+<li><p>(Optional) Generating/updating <code class="docutils literal notranslate"><span class="pre">_CoqProject</span></code>.</p></li>
+<li><p>Generating and invoking a sub-makefile derived from <code class="docutils literal notranslate"><span class="pre">_CoqProject</span></code>.</p></li>
+</ul>
+<p>This convention achieves the following:</p>
+<ul class="simple">
+<li><p>It is compatible with opam: the project’s opam file should rely on the Makefile to perform the build and installation steps.</p></li>
+</ul>
+</div>
+<div class="section" id="contributing-md">
+<h3><code class="docutils literal notranslate"><span class="pre">CONTRIBUTING.md</span></code><a class="headerlink" href="#contributing-md" title="Permalink to this headline">¶</a></h3>
+<p>Does not apply to all projects.</p>
+</div>
+<div class="section" id="license-md">
+<h3><code class="docutils literal notranslate"><span class="pre">LICENSE.md</span></code><a class="headerlink" href="#license-md" title="Permalink to this headline">¶</a></h3>
+<p>Always specify a license. Note that <a class="reference external" href="https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository">GitHub has the ability</a> to recognize certain popular licenses and that they expose this as a search criteria.</p>
+</div>
+<div class="section" id="readme-md">
+<h3><code class="docutils literal notranslate"><span class="pre">README.md</span></code><a class="headerlink" href="#readme-md" title="Permalink to this headline">¶</a></h3>
+<p>Always provide a readme.</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">vstyle</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="principles.html">Principles</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Project structure</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#documentation">Documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#coqdoc"><code class="docutils literal notranslate"><span class="pre">coqdoc</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#alectryon"><code class="docutils literal notranslate"><span class="pre">alectryon</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#continuous-integration">Continuous Integration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dependencies">Dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#layout">Layout</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#dep"><code class="docutils literal notranslate"><span class="pre">dep/</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#docs"><code class="docutils literal notranslate"><span class="pre">docs/</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ext"><code class="docutils literal notranslate"><span class="pre">ext/</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src"><code class="docutils literal notranslate"><span class="pre">src/</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#examples"><code class="docutils literal notranslate"><span class="pre">examples/</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#theories"><code class="docutils literal notranslate"><span class="pre">theories/</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coqproject"><code class="docutils literal notranslate"><span class="pre">_CoqProject</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coq-myproject-opam"><code class="docutils literal notranslate"><span class="pre">coq-myproject.opam</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#makefile"><code class="docutils literal notranslate"><span class="pre">Makefile</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#contributing-md"><code class="docutils literal notranslate"><span class="pre">CONTRIBUTING.md</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#license-md"><code class="docutils literal notranslate"><span class="pre">LICENSE.md</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#readme-md"><code class="docutils literal notranslate"><span class="pre">README.md</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="formatting.html">Formatting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="naming_conventions.html">Naming conventions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scope_management.html">Scope management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="definitions.html">Definitions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="types.html">Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ltac.html">Ltac</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="principles.html" title="previous chapter">Principles</a></li>
+      <li>Next: <a href="formatting.html" title="next chapter">Formatting</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2021, applied.fm.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.4</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.8</a>
+      
+      |
+      <a href="_sources/project_structure.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

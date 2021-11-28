@@ -1,10 +1,21 @@
 # vstyle
-applied.fm Style Guide for Coq
+
+The [applied.fm](https://applied.fm) Style Guide for Coq.
+
+Available online at [readthedocs.io](https://vstyle.readthedocs.io/en/latest/).
+
 
 ## Building
 
-Requires [alectryon](https://github.com/cpitclaudel/alectryon) by [Clément Pit-Claudel](https://github.com/cpitclaudel).
+Requires:
+* [Sphinx](https://www.sphinx-doc.org)
+* [alectryon](https://github.com/cpitclaudel/alectryon)
 
-To update the `vguide` directory, simply run `make`.
+```console
+$ make -C docs html
+```
 
-To specify an alternate output directory, run `make OUTDIR=preferred_output_path`.
+
+## References
+
+* [reStructuredText](https://www.sphinx-doc.org/en/master/usage/restructuredtext/index.html)
