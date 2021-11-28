@@ -16,7 +16,7 @@ The following must be documented:
 * Installation instructions.
    * How to get the code.
    * Versions of the `Coq Platform <https://github.com/coq/platform>`_ that are known to be compatible.
-   * Sample commands for installing with ``opam``.
+   * Sample commands for installing with :command:`opam`.
 * Example usage.
 
 
@@ -38,7 +38,7 @@ Dependencies
 ------------
 
 * When possible, maintain compatibility with the `Coq Platform <https://github.com/coq/platform>`_.
-* Ensure all dependencies are accurately represented in the project's ``opam`` file.
+* Ensure all dependencies are accurately represented in the project's :command:`opam` file.
 
 
 Releases
@@ -59,7 +59,7 @@ Prior to release, verify the following:
    * The URL of the project's main website or repository is accurate.
 * The installation instructions are accurate:
    * Dependencies, version information, and console commands are up-to-date.
-   * Installation procedure works from a "clean-slate" ``opam`` switch.
+   * Installation procedure works from a "clean-slate" :command:`opam` switch.
 * Examples are tested and known to work.
 
 
@@ -107,29 +107,29 @@ Repo Structure
 
 The following directory hierarchy is recommended:
 
-* ``dep/``
-* ``docs/``
-* ``ext/``
-* ``src/``
-* ``examples/``
-* ``theories/``
-* ``_CoqProject``
-* ``coq-{myproject}.opam``
-* ``Makefile``
-* ``Makefile.configure``
-* ``CONTRIBUTING.md``
-* ``LICENSE.md``
-* ``README.md``
+* :file:`dep/`
+* :file:`docs/`
+* :file:`ext/`
+* :file:`src/`
+* :file:`examples/`
+* :file:`theories/`
+* :file:`_CoqProject`
+* :file:`coq-{myproject}.opam`
+* :file:`Makefile`
+* :file:`Makefile.configure`
+* :file:`CONTRIBUTING.md`
+* :file:`LICENSE.md`
+* :file:`README.md`
 
 Not every path is required; see below for additional guidance.
 
 
-``dep/``
-~~~~~~~~
+:file:`dep/`
+~~~~~~~~~~~~
 
 *Does not apply to all projects.*
 
-Contains that cannot be found in opam, either because they generally do not have ``opam`` packages or because a bleeding-edge version is required that has not been released yet.
+Contains that cannot be found in opam, either because they generally do not have :command:`opam` packages or because a bleeding-edge version is required that has not been released yet.
 
 * Git submodules are preferred.
 
@@ -138,16 +138,16 @@ Contains that cannot be found in opam, either because they generally do not have
 * It gives sensible results when used with ``-Q`` as in ``-Q dep/MyDep MyDep``
 
 
-``docs/``
-~~~~~~~~~
+:file:`docs/`
+~~~~~~~~~~~~~
 
 Contains project documentation.
 
 Documentation should be generated using `coqdoc <https://coq.inria.fr/refman/using/tools/coqdoc.html>`_, `alectryon <https://github.com/cpitclaudel/alectryon/>`_, and/or `sphinx <https://www.sphinx-doc.org>`_.
 
 
-``ext/``
-~~~~~~~~
+:file:`ext/`
+~~~~~~~~~~~~
 
 *Does not apply to all projects.*
 
@@ -161,8 +161,8 @@ The directory contains subdirectories whose names end in ``Ext``. For example, s
 * It clearly identifies components that should be upstreamed.
 
 
-``src/``
-~~~~~~~~
+:file:`src/`
+~~~~~~~~~~~~
 
 *Does not apply to all projects.*
 
@@ -173,8 +173,8 @@ Contains non-Coq source code, such as OCaml, C, JavaScript, Haskell, etc.
 * It clearly identifies components not written in Coq.
 
 
-``examples/``
-~~~~~~~~~~~~~
+:file:`examples/`
+~~~~~~~~~~~~~~~~~
 
 *Does not apply to all projects.*
 
@@ -186,8 +186,8 @@ Most software projects include examples of one kind or another. These should be 
 * It gives sensible results when used with ``-Q`` as in ``-Q examples/ MyProject.Examples``
 
 
-``theories/``
-~~~~~~~~~~~~~
+:file:`theories/`
+~~~~~~~~~~~~~~~~~
 
 This is where the main Coq development is stored.
 
@@ -196,74 +196,74 @@ This is where the main Coq development is stored.
 * It gives sensible results when used with ``-Q`` as in ``-Q theories/ MyProject``
 
 
-``_CoqProject``
-~~~~~~~~~~~~~~~
+:file:`_CoqProject`
+~~~~~~~~~~~~~~~~~~~
 
 This file should:
 
 * Map ``dep``, ``ext``, ``theories``, and ``examples`` into the search path.
 * Enumerate the files in ``ext``, ``theories``, and ``examples``.
 
-For various reasons, some projects may require more than one `_CoqProject` file. In this case:
+For various reasons, some projects may require more than one :file:`_CoqProject` file. In this case:
 
-* There must be a "default" `_CoqProject` file that satisfies the requirements above.
-* The other files must be named `_CoqProject.{variant}`.
+* There must be a "default" :file:`_CoqProject` file that satisfies the requirements above.
+* The other files must be named :file:`_CoqProject.{variant}`.
 
 *Rationale:*
 
-* The generated makefile will build all of the examples.
+* The generated Makefile will build all of the examples.
 * `CoqIDE <https://coq.inria.fr/refman/practical-tools/coqide.html>`_, `vscoq <https://github.com/coq-community/vscoq>`_, and other tools behave as expected.
 
 
-``coq-{myproject}.opam``
-~~~~~~~~~~~~~~~~~~~~~~~~
+:file:`coq-{myproject}.opam`
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-``opam`` is the preferred method of managing dependencies in the Coq ecosystem. Even if the project is not published to the `Opam archive for Coq <https://coq.inria.fr/opam-packaging.html>`_, the presence of an ``opam`` file will be useful to downstream users (both for dependency installation and for installing the project from source).
+:command:`opam` is the preferred method of managing dependencies in the Coq ecosystem. Even if the project is not published to the `Opam archive for Coq <https://coq.inria.fr/opam-packaging.html>`_, the presence of an :command:`opam` file will be useful to downstream users (both for dependency installation and for installing the project from source).
 
-* The ``opam`` file must document the project's dependencies.
+* The :command:`opam` file must document the project's dependencies.
 * It should also provide build & install operations.
 * If it provides an install operation, the uninstall operation must be tested and known to work.
 
-For various reasons, some projects may require more than one ``opam`` file. In this case:
+For various reasons, some projects may require more than one :command:`opam` file. In this case:
 
-* There must be a "default" ``coq-{myproject}.opam`` file that satisfies the requirements above.
-* The other files must be named `coq-{myproject}-{variant}.opam`.
+* There must be a "default" :file:`coq-{myproject}.opam` file that satisfies the requirements above.
+* The other files must be named :file:`coq-{myproject}-{variant}.opam`.
 
 *Rationale:*
 
 * ``opam install --deps-only ./coq-myproject.opam`` works as expected.
 
 
-``Makefile``
-~~~~~~~~~~~~
+:file:`Makefile`
+~~~~~~~~~~~~~~~~
 
 Responsible for building the project. This includes:
 
 * Processing any build arguments.
-* (Optional) Generating/updating ``_CoqProject``.
-* Generating and invoking a sub-makefile derived from ``_CoqProject``.
+* (Optional) Generating/updating :file:`_CoqProject`.
+* Generating and invoking a sub-makefile derived from :file:`_CoqProject`.
 
 It must provide top-level build commands.
 
 *Rationale:*
 
-* It is compatible with ``opam``: the project's ``opam`` file should rely on ``Makefile`` to perform the build & install operations.
+* It is compatible with :command:`opam`: the project's :command:`opam` file should rely on :file:`Makefile` to perform the build & install operations.
 
 
-``Makefile.configure``
-~~~~~~~~~~~~~~~~~~~~~~
+:file:`Makefile.configure`
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 *Does not apply to all projects.*
 
-Enumerates and documents the user-configurable variables used by ``Makefile``.
+Enumerates and documents the user-configurable variables used by :file:`Makefile`.
 
 *Rationale:*
 
-* It allows users and contributors to configure their build without editing ``Makefile``.
+* It allows users and contributors to configure their build without editing :file:`Makefile`.
 
 
-``CONTRIBUTING.md``
-~~~~~~~~~~~~~~~~~~~
+:file:`CONTRIBUTING.md`
+~~~~~~~~~~~~~~~~~~~~~~~
 
 *Does not apply to all projects.*
 
@@ -274,16 +274,16 @@ Provides information to potential contributors:
 * Community standards & guidelines
 
 
-``LICENSE.md``
-~~~~~~~~~~~~~~
+:file:`LICENSE.md`
+~~~~~~~~~~~~~~~~~~
 
 The project must specify a license and copyright.
 
 * `GitHub has the ability to recognize certain popular licenses <https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository>`_. Projects which use one of those licenses must ensure GitHub recognizes their selection.
 
 
-``README.md``
-~~~~~~~~~~~~~
+:file:`README.md`
+~~~~~~~~~~~~~~~~~
 
 This must contain:
 
