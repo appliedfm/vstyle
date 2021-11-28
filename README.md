@@ -1,5 +1,9 @@
 # vstyle
-applied.fm Style Guide for Coq
+
+The [applied.fm](https://applied.fm) Style Guide for Coq.
+
+Available online at [readthedocs.io](https://vstyle.readthedocs.io/en/latest/).
+
 
 ## Building
 
@@ -10,6 +14,7 @@ Requires:
 ```console
 $ make -C docs html
 ```
+
 
 ## References
 
