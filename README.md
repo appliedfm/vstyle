@@ -1,4 +1,4 @@
-# vstyle: a style guide for Coq
+# vstyle: A style guide for Coq
 
 The latest version can be viewed online at [vstyle.readthedocs.io](https://vstyle.readthedocs.io).
 
