@@ -2,7 +2,7 @@
 
 The [applied.fm](https://applied.fm) Style Guide for Coq.
 
-Latest version can be found at [https://vstyle.readthedocs.io](https://vstyle.readthedocs.io).
+Latest version can be found at [vstyle.readthedocs.io](https://vstyle.readthedocs.io).
 
 
 ## Building
