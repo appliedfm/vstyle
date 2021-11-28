@@ -115,14 +115,20 @@ TODO
 Objectives
 ----------
 
-Find & replace work as expected
+Mitigate bike-shedding
+~~~~~~~~~~~~~~~~~~~~~~
+
+TODO
+
+
+Style is enforcable by a linter
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 TODO
 
 
-Mitigate bike-shedding
-~~~~~~~~~~~~~~~~~~~~~~
+Find & replace work as expected
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 TODO
 
