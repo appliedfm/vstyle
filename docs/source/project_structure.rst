@@ -38,14 +38,13 @@ Dependencies
 Source control
 --------------
 
-Use :code:`git`.
-
+Use :command:`git`.
 
 *Rationale:*
 
-* :code:`git` is ubiquitous in the Coq ecosystem. It is well-known by all of the personas.
-* :code:`git` submodules are widely used in the Coq ecosystem. This is particularly true for bleeding-edge development. It is wise to be compatible with this practice.
-* :code:`git` works well with :code:`opam`.
+* :command:`git` is ubiquitous in the Coq ecosystem. It is well-known by all of the personas.
+* :command:`git` submodules are widely used in the Coq ecosystem. This is particularly true for bleeding-edge development. It is wise to be compatible with this practice.
+* :command:`git` works well with :code:`opam`.
 
 
 Continuous Integration
