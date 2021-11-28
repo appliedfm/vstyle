@@ -2,13 +2,17 @@ Project structure
 =================
 
 
-Project documentation
+Documentation
 ---------------------
+
+Project documentation
+~~~~~~~~~~~~~~~~~~~~~
 
 The following must be documented:
 
 * License & copyright.
 * The URL of the project's main website or repository.
+* Citations/references for upstream components (as appropriate).
 * Installation instructions.
    * How to get the code.
    * Versions of the `Coq Platform <https://github.com/coq/platform>`_ that are known to be compatible.
@@ -17,17 +21,17 @@ The following must be documented:
 
 
 Source & example documentation
-------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Requirements vary by project.
 
-* Use `coqdoc <https://coq.inria.fr/refman/using/tools/coqdoc.html>`_, `alectryon <https://github.com/cpitclaudel/alectryon/>`_, `sphinx <https://www.sphinx-doc.org>`_, or some combination thereof.
+* Use `coqdoc <https://coq.inria.fr/refman/using/tools/coqdoc.html>`_, `alectryon <https://github.com/cpitclaudel/alectryon/>`_, and/or `sphinx <https://www.sphinx-doc.org>`_.
 
 
 Continuous Integration
 ----------------------
 
-Use the `Coq Docker Image <https://hub.docker.com/r/coqorg/coq/>`_ to `continuously test your build <https://github.com/coq-community/docker-coq/wiki/CI-setup>`_.
+Use the `Coq Docker image <https://hub.docker.com/r/coqorg/coq/>`_ to `continuously test your build <https://github.com/coq-community/docker-coq/wiki/CI-setup>`_.
 
 
 Dependencies
@@ -43,6 +47,8 @@ Releases
 Prior to release, verify the following:
 
 * All necessary documentation is in place.
+   * All of the generated documentation is up-to-date.
+   * Upstream components have been cited/referenced (as appropriate).
 * The opam file is accurate and works in the following modes:
    * ``opam install --deps-only``
    * ``opam install``
@@ -93,6 +99,8 @@ Optionally, submit the project for inclusion in the following venues:
 * `awesome-coq <https://github.com/coq-community/awesome-coq>`_
 * `Coq Platform <https://github.com/coq/platform>`_
 
+Lastly, notify maintainers of upstream components (as appropriate).
+
 
 Repo Structure
 --------------
@@ -106,7 +114,7 @@ The following directory hierarchy is recommended:
 * ``examples/``
 * ``theories/``
 * ``_CoqProject``
-* ``coq-myproject.opam``
+* ``coq-{myproject}.opam``
 * ``Makefile``
 * ``Makefile.configure``
 * ``CONTRIBUTING.md``
@@ -119,11 +127,13 @@ Not every path is required; see below for additional guidance.
 ``dep/``
 ~~~~~~~~
 
-Does not apply to all projects.
+*Does not apply to all projects.*
 
-Contains Git submodules for dependencies that cannot be found in opam, either because they generally do not have ``opam`` packages or because a bleeding-edge version is required that has not been released yet.
+Contains that cannot be found in opam, either because they generally do not have ``opam`` packages or because a bleeding-edge version is required that has not been released yet.
 
-This convention achieves the following:
+* Git submodules are preferred.
+
+*Rationale:*
 
 * It gives sensible results when used with ``-Q`` as in ``-Q dep/MyDep MyDep``
 
@@ -133,17 +143,19 @@ This convention achieves the following:
 
 Contains project documentation.
 
+Documentation should be generated using `coqdoc <https://coq.inria.fr/refman/using/tools/coqdoc.html>`_, `alectryon <https://github.com/cpitclaudel/alectryon/>`_, and/or `sphinx <https://www.sphinx-doc.org>`_.
+
 
 ``ext/``
 ~~~~~~~~
 
-Does not apply to all projects.
+*Does not apply to all projects.*
 
 Contains definitions that "extend" dependencies with additional instances, lemmas, etc.
 
 The directory contains subdirectories whose names end in ``Ext``. For example, suppose one requires a lemma about lists that is not present in the standard Coq library. In this case, the lemma would be stored somewhere within ``ext/CoqExt/``.
 
-This convention achieves the following:
+*Rationale:*
 
 * It gives sensible results when used with ``-Q`` as in ``-Q ext/MyDepExt MyDepExt``
 * It clearly identifies components that should be upstreamed.
@@ -152,11 +164,11 @@ This convention achieves the following:
 ``src/``
 ~~~~~~~~
 
-Does not apply to all projects.
+*Does not apply to all projects.*
 
-Contains non-Coq source code. Many projects include source in languages such as OCaml, C, JavaScript, Haskell, etc. These source files should be stored here.
+Contains non-Coq source code, such as OCaml, C, JavaScript, Haskell, etc.
 
-This convention achieves the following:
+*Rationale:*
 
 * It clearly identifies components not written in Coq.
 
@@ -164,9 +176,11 @@ This convention achieves the following:
 ``examples/``
 ~~~~~~~~~~~~~
 
+*Does not apply to all projects.*
+
 Most software projects include examples of one kind or another. These should be stored here.
 
-This convention achieves the following:
+*Rationale:*
 
 * It clearly identifies examples as being examples (and not components of the main development).
 * It gives sensible results when used with ``-Q`` as in ``-Q examples/ MyProject.Examples``
@@ -177,7 +191,7 @@ This convention achieves the following:
 
 This is where the main Coq development is stored.
 
-This convention achieves the following:
+*Rationale:*
 
 * It gives sensible results when used with ``-Q`` as in ``-Q theories/ MyProject``
 
@@ -190,20 +204,32 @@ This file should:
 * Map ``dep``, ``ext``, ``theories``, and ``examples`` into the search path.
 * Enumerate the files in ``ext``, ``theories``, and ``examples``.
 
-This convention achieves the following:
+For various reasons, some projects may require more than one `_CoqProject` file. In this case:
+
+* There must be a "default" `_CoqProject` file that satisfies the requirements above.
+* The other files must be named `_CoqProject.{variant}`.
+
+*Rationale:*
 
 * The generated makefile will build all of the examples.
-* CoqIDE, vscode, and others behave as expected.
+* `CoqIDE <https://coq.inria.fr/refman/practical-tools/coqide.html>`_, `vscoq <https://github.com/coq-community/vscoq>`_, and other tools behave as expected.
 
 
-``coq-myproject.opam``
-~~~~~~~~~~~~~~~~~~~~~~
+``coq-{myproject}.opam``
+~~~~~~~~~~~~~~~~~~~~~~~~
 
-``opam`` is the preferred method of managing dependencies in the Coq ecosystem. Even if the project is not published to the ``opam`` repository, the presence of an ``opam`` file in the project will be useful to downstream users (both for dependency installation and for installing the project from source).
+``opam`` is the preferred method of managing dependencies in the Coq ecosystem. Even if the project is not published to the `Opam archive for Coq <https://coq.inria.fr/opam-packaging.html>`_, the presence of an ``opam`` file will be useful to downstream users (both for dependency installation and for installing the project from source).
 
-The ``opam`` file must document the project's dependencies. It should also provide build & install operations.
+* The ``opam`` file must document the project's dependencies.
+* It should also provide build & install operations.
+* If it provides an install operation, the uninstall operation must be tested and known to work.
 
-This convention achieves the following:
+For various reasons, some projects may require more than one ``opam`` file. In this case:
+
+* There must be a "default" ``coq-{myproject}.opam`` file that satisfies the requirements above.
+* The other files must be named `coq-{myproject}-{variant}.opam`.
+
+*Rationale:*
 
 * ``opam install --deps-only ./coq-myproject.opam`` works as expected.
 
@@ -217,19 +243,21 @@ Responsible for building the project. This includes:
 * (Optional) Generating/updating ``_CoqProject``.
 * Generating and invoking a sub-makefile derived from ``_CoqProject``.
 
-This convention achieves the following:
+It must provide top-level build commands.
 
-* It is compatible with opam: the project's opam file should rely on the Makefile to perform the build and installation steps.
+*Rationale:*
+
+* It is compatible with ``opam``: the project's ``opam`` file should rely on ``Makefile`` to perform the build & install operations.
 
 
 ``Makefile.configure``
 ~~~~~~~~~~~~~~~~~~~~~~
 
-Does not apply to all projects.
+*Does not apply to all projects.*
 
 Enumerates and documents the user-configurable variables used by ``Makefile``.
 
-This convention achieves the following:
+*Rationale:*
 
 * It allows users and contributors to configure their build without editing ``Makefile``.
 
@@ -237,7 +265,7 @@ This convention achieves the following:
 ``CONTRIBUTING.md``
 ~~~~~~~~~~~~~~~~~~~
 
-Does not apply to all projects.
+*Does not apply to all projects.*
 
 Provides information to potential contributors:
 
@@ -251,7 +279,7 @@ Provides information to potential contributors:
 
 The project must specify a license and copyright.
 
-Note that `GitHub has the ability <https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository>`_ to recognize certain popular licenses and that they expose this as a search criteria.
+* `GitHub has the ability to recognize certain popular licenses <https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository>`_. Projects which use one of those licenses must ensure GitHub recognizes their selection.
 
 
 ``README.md``
@@ -259,5 +287,8 @@ Note that `GitHub has the ability <https://docs.github.com/en/repositories/manag
 
 This must contain:
 
+* The URL of the project's main website or repository.
+* A one-sentence description of the project.
+* Citations/references for upstream components (as appropriate).
 * Installation instructions.
 * Concise examples and/or references to longer examples.

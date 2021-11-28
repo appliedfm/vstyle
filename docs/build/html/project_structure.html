@@ -34,12 +34,15 @@
             
   <div class="section" id="project-structure">
 <h1>Project structure<a class="headerlink" href="#project-structure" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="documentation">
+<h2>Documentation<a class="headerlink" href="#documentation" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="project-documentation">
-<h2>Project documentation<a class="headerlink" href="#project-documentation" title="Permalink to this headline">¶</a></h2>
+<h3>Project documentation<a class="headerlink" href="#project-documentation" title="Permalink to this headline">¶</a></h3>
 <p>The following must be documented:</p>
 <ul class="simple">
 <li><p>License &amp; copyright.</p></li>
 <li><p>The URL of the project’s main website or repository.</p></li>
+<li><p>Citations/references for upstream components (as appropriate).</p></li>
 <li><dl class="simple">
 <dt>Installation instructions.</dt><dd><ul>
 <li><p>How to get the code.</p></li>
@@ -53,15 +56,16 @@
 </ul>
 </div>
 <div class="section" id="source-example-documentation">
-<h2>Source &amp; example documentation<a class="headerlink" href="#source-example-documentation" title="Permalink to this headline">¶</a></h2>
+<h3>Source &amp; example documentation<a class="headerlink" href="#source-example-documentation" title="Permalink to this headline">¶</a></h3>
 <p>Requirements vary by project.</p>
 <ul class="simple">
-<li><p>Use <a class="reference external" href="https://coq.inria.fr/refman/using/tools/coqdoc.html">coqdoc</a>, <a class="reference external" href="https://github.com/cpitclaudel/alectryon/">alectryon</a>, <a class="reference external" href="https://www.sphinx-doc.org">sphinx</a>, or some combination thereof.</p></li>
+<li><p>Use <a class="reference external" href="https://coq.inria.fr/refman/using/tools/coqdoc.html">coqdoc</a>, <a class="reference external" href="https://github.com/cpitclaudel/alectryon/">alectryon</a>, and/or <a class="reference external" href="https://www.sphinx-doc.org">sphinx</a>.</p></li>
 </ul>
+</div>
 </div>
 <div class="section" id="continuous-integration">
 <h2>Continuous Integration<a class="headerlink" href="#continuous-integration" title="Permalink to this headline">¶</a></h2>
-<p>Use the <a class="reference external" href="https://hub.docker.com/r/coqorg/coq/">Coq Docker Image</a> to <a class="reference external" href="https://github.com/coq-community/docker-coq/wiki/CI-setup">continuously test your build</a>.</p>
+<p>Use the <a class="reference external" href="https://hub.docker.com/r/coqorg/coq/">Coq Docker image</a> to <a class="reference external" href="https://github.com/coq-community/docker-coq/wiki/CI-setup">continuously test your build</a>.</p>
 </div>
 <div class="section" id="dependencies">
 <h2>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h2>
@@ -74,7 +78,14 @@
 <h2>Releases<a class="headerlink" href="#releases" title="Permalink to this headline">¶</a></h2>
 <p>Prior to release, verify the following:</p>
 <ul class="simple">
-<li><p>All necessary documentation is in place.</p></li>
+<li><dl class="simple">
+<dt>All necessary documentation is in place.</dt><dd><ul>
+<li><p>All of the generated documentation is up-to-date.</p></li>
+<li><p>Upstream components have been cited/referenced (as appropriate).</p></li>
+</ul>
+</dd>
+</dl>
+</li>
 <li><dl class="simple">
 <dt>The opam file is accurate and works in the following modes:</dt><dd><ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">opam</span> <span class="pre">install</span> <span class="pre">--deps-only</span></code></p></li>
@@ -120,8 +131,8 @@
 <li><p>Submit the new release to the <a class="reference external" href="https://coq.inria.fr/opam-packaging.html">Opam archive for Coq</a>.</p></li>
 </ul>
 </div>
-<div class="section" id="documentation">
-<h3>Documentation<a class="headerlink" href="#documentation" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id3">
+<h3>Documentation<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Publish documentation on <a class="reference external" href="readthedocs.org">readthedocs.org</a>.</p></li>
 </ul>
@@ -141,6 +152,7 @@
 <li><p><a class="reference external" href="https://github.com/coq-community/awesome-coq">awesome-coq</a></p></li>
 <li><p><a class="reference external" href="https://github.com/coq/platform">Coq Platform</a></p></li>
 </ul>
+<p>Lastly, notify maintainers of upstream components (as appropriate).</p>
 </div>
 </div>
 <div class="section" id="repo-structure">
@@ -154,7 +166,7 @@
 <li><p><code class="docutils literal notranslate"><span class="pre">examples/</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">theories/</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">_CoqProject</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">coq-myproject.opam</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">coq-{myproject}.opam</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">Makefile</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">Makefile.configure</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">CONTRIBUTING.md</span></code></p></li>
@@ -164,9 +176,12 @@
 <p>Not every path is required; see below for additional guidance.</p>
 <div class="section" id="dep">
 <h3><code class="docutils literal notranslate"><span class="pre">dep/</span></code><a class="headerlink" href="#dep" title="Permalink to this headline">¶</a></h3>
-<p>Does not apply to all projects.</p>
-<p>Contains Git submodules for dependencies that cannot be found in opam, either because they generally do not have <code class="docutils literal notranslate"><span class="pre">opam</span></code> packages or because a bleeding-edge version is required that has not been released yet.</p>
-<p>This convention achieves the following:</p>
+<p><em>Does not apply to all projects.</em></p>
+<p>Contains that cannot be found in opam, either because they generally do not have <code class="docutils literal notranslate"><span class="pre">opam</span></code> packages or because a bleeding-edge version is required that has not been released yet.</p>
+<ul class="simple">
+<li><p>Git submodules are preferred.</p></li>
+</ul>
+<p><em>Rationale:</em></p>
 <ul class="simple">
 <li><p>It gives sensible results when used with <code class="docutils literal notranslate"><span class="pre">-Q</span></code> as in <code class="docutils literal notranslate"><span class="pre">-Q</span> <span class="pre">dep/MyDep</span> <span class="pre">MyDep</span></code></p></li>
 </ul>
@@ -174,13 +189,14 @@
 <div class="section" id="docs">
 <h3><code class="docutils literal notranslate"><span class="pre">docs/</span></code><a class="headerlink" href="#docs" title="Permalink to this headline">¶</a></h3>
 <p>Contains project documentation.</p>
+<p>Documentation should be generated using <a class="reference external" href="https://coq.inria.fr/refman/using/tools/coqdoc.html">coqdoc</a>, <a class="reference external" href="https://github.com/cpitclaudel/alectryon/">alectryon</a>, and/or <a class="reference external" href="https://www.sphinx-doc.org">sphinx</a>.</p>
 </div>
 <div class="section" id="ext">
 <h3><code class="docutils literal notranslate"><span class="pre">ext/</span></code><a class="headerlink" href="#ext" title="Permalink to this headline">¶</a></h3>
-<p>Does not apply to all projects.</p>
+<p><em>Does not apply to all projects.</em></p>
 <p>Contains definitions that “extend” dependencies with additional instances, lemmas, etc.</p>
 <p>The directory contains subdirectories whose names end in <code class="docutils literal notranslate"><span class="pre">Ext</span></code>. For example, suppose one requires a lemma about lists that is not present in the standard Coq library. In this case, the lemma would be stored somewhere within <code class="docutils literal notranslate"><span class="pre">ext/CoqExt/</span></code>.</p>
-<p>This convention achieves the following:</p>
+<p><em>Rationale:</em></p>
 <ul class="simple">
 <li><p>It gives sensible results when used with <code class="docutils literal notranslate"><span class="pre">-Q</span></code> as in <code class="docutils literal notranslate"><span class="pre">-Q</span> <span class="pre">ext/MyDepExt</span> <span class="pre">MyDepExt</span></code></p></li>
 <li><p>It clearly identifies components that should be upstreamed.</p></li>
@@ -188,17 +204,18 @@
 </div>
 <div class="section" id="src">
 <h3><code class="docutils literal notranslate"><span class="pre">src/</span></code><a class="headerlink" href="#src" title="Permalink to this headline">¶</a></h3>
-<p>Does not apply to all projects.</p>
-<p>Contains non-Coq source code. Many projects include source in languages such as OCaml, C, JavaScript, Haskell, etc. These source files should be stored here.</p>
-<p>This convention achieves the following:</p>
+<p><em>Does not apply to all projects.</em></p>
+<p>Contains non-Coq source code, such as OCaml, C, JavaScript, Haskell, etc.</p>
+<p><em>Rationale:</em></p>
 <ul class="simple">
 <li><p>It clearly identifies components not written in Coq.</p></li>
 </ul>
 </div>
 <div class="section" id="examples">
 <h3><code class="docutils literal notranslate"><span class="pre">examples/</span></code><a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h3>
+<p><em>Does not apply to all projects.</em></p>
 <p>Most software projects include examples of one kind or another. These should be stored here.</p>
-<p>This convention achieves the following:</p>
+<p><em>Rationale:</em></p>
 <ul class="simple">
 <li><p>It clearly identifies examples as being examples (and not components of the main development).</p></li>
 <li><p>It gives sensible results when used with <code class="docutils literal notranslate"><span class="pre">-Q</span></code> as in <code class="docutils literal notranslate"><span class="pre">-Q</span> <span class="pre">examples/</span> <span class="pre">MyProject.Examples</span></code></p></li>
@@ -207,7 +224,7 @@
 <div class="section" id="theories">
 <h3><code class="docutils literal notranslate"><span class="pre">theories/</span></code><a class="headerlink" href="#theories" title="Permalink to this headline">¶</a></h3>
 <p>This is where the main Coq development is stored.</p>
-<p>This convention achieves the following:</p>
+<p><em>Rationale:</em></p>
 <ul class="simple">
 <li><p>It gives sensible results when used with <code class="docutils literal notranslate"><span class="pre">-Q</span></code> as in <code class="docutils literal notranslate"><span class="pre">-Q</span> <span class="pre">theories/</span> <span class="pre">MyProject</span></code></p></li>
 </ul>
@@ -219,17 +236,31 @@
 <li><p>Map <code class="docutils literal notranslate"><span class="pre">dep</span></code>, <code class="docutils literal notranslate"><span class="pre">ext</span></code>, <code class="docutils literal notranslate"><span class="pre">theories</span></code>, and <code class="docutils literal notranslate"><span class="pre">examples</span></code> into the search path.</p></li>
 <li><p>Enumerate the files in <code class="docutils literal notranslate"><span class="pre">ext</span></code>, <code class="docutils literal notranslate"><span class="pre">theories</span></code>, and <code class="docutils literal notranslate"><span class="pre">examples</span></code>.</p></li>
 </ul>
-<p>This convention achieves the following:</p>
+<p>For various reasons, some projects may require more than one <code class="code highlight coq docutils literal notranslate"><span class="operator"><span class="pre">_</span></span><span class="name"><span class="pre">CoqProject</span></span></code> file. In this case:</p>
+<ul class="simple">
+<li><p>There must be a “default” <code class="code highlight coq docutils literal notranslate"><span class="operator"><span class="pre">_</span></span><span class="name"><span class="pre">CoqProject</span></span></code> file that satisfies the requirements above.</p></li>
+<li><p>The other files must be named <code class="code highlight coq docutils literal notranslate"><span class="operator"><span class="pre">_</span></span><span class="name"><span class="pre">CoqProject</span></span><span class="operator"><span class="pre">.{</span></span><span class="name"><span class="pre">variant</span></span><span class="operator"><span class="pre">}</span></span></code>.</p></li>
+</ul>
+<p><em>Rationale:</em></p>
 <ul class="simple">
 <li><p>The generated makefile will build all of the examples.</p></li>
-<li><p>CoqIDE, vscode, and others behave as expected.</p></li>
+<li><p><a class="reference external" href="https://coq.inria.fr/refman/practical-tools/coqide.html">CoqIDE</a>, <a class="reference external" href="https://github.com/coq-community/vscoq">vscoq</a>, and other tools behave as expected.</p></li>
 </ul>
 </div>
 <div class="section" id="coq-myproject-opam">
-<h3><code class="docutils literal notranslate"><span class="pre">coq-myproject.opam</span></code><a class="headerlink" href="#coq-myproject-opam" title="Permalink to this headline">¶</a></h3>
-<p><code class="docutils literal notranslate"><span class="pre">opam</span></code> is the preferred method of managing dependencies in the Coq ecosystem. Even if the project is not published to the <code class="docutils literal notranslate"><span class="pre">opam</span></code> repository, the presence of an <code class="docutils literal notranslate"><span class="pre">opam</span></code> file in the project will be useful to downstream users (both for dependency installation and for installing the project from source).</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">opam</span></code> file must document the project’s dependencies. It should also provide build &amp; install operations.</p>
-<p>This convention achieves the following:</p>
+<h3><code class="docutils literal notranslate"><span class="pre">coq-{myproject}.opam</span></code><a class="headerlink" href="#coq-myproject-opam" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">opam</span></code> is the preferred method of managing dependencies in the Coq ecosystem. Even if the project is not published to the <a class="reference external" href="https://coq.inria.fr/opam-packaging.html">Opam archive for Coq</a>, the presence of an <code class="docutils literal notranslate"><span class="pre">opam</span></code> file will be useful to downstream users (both for dependency installation and for installing the project from source).</p>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">opam</span></code> file must document the project’s dependencies.</p></li>
+<li><p>It should also provide build &amp; install operations.</p></li>
+<li><p>If it provides an install operation, the uninstall operation must be tested and known to work.</p></li>
+</ul>
+<p>For various reasons, some projects may require more than one <code class="docutils literal notranslate"><span class="pre">opam</span></code> file. In this case:</p>
+<ul class="simple">
+<li><p>There must be a “default” <code class="docutils literal notranslate"><span class="pre">coq-{myproject}.opam</span></code> file that satisfies the requirements above.</p></li>
+<li><p>The other files must be named <code class="code highlight coq docutils literal notranslate"><span class="name"><span class="pre">coq</span></span><span class="operator"><span class="pre">-{</span></span><span class="name"><span class="pre">myproject</span></span><span class="operator"><span class="pre">}-{</span></span><span class="name"><span class="pre">variant</span></span><span class="operator"><span class="pre">}.</span></span><span class="name"><span class="pre">opam</span></span></code>.</p></li>
+</ul>
+<p><em>Rationale:</em></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">opam</span> <span class="pre">install</span> <span class="pre">--deps-only</span> <span class="pre">./coq-myproject.opam</span></code> works as expected.</p></li>
 </ul>
@@ -242,23 +273,24 @@
 <li><p>(Optional) Generating/updating <code class="docutils literal notranslate"><span class="pre">_CoqProject</span></code>.</p></li>
 <li><p>Generating and invoking a sub-makefile derived from <code class="docutils literal notranslate"><span class="pre">_CoqProject</span></code>.</p></li>
 </ul>
-<p>This convention achieves the following:</p>
+<p>It must provide top-level build commands.</p>
+<p><em>Rationale:</em></p>
 <ul class="simple">
-<li><p>It is compatible with opam: the project’s opam file should rely on the Makefile to perform the build and installation steps.</p></li>
+<li><p>It is compatible with <code class="docutils literal notranslate"><span class="pre">opam</span></code>: the project’s <code class="docutils literal notranslate"><span class="pre">opam</span></code> file should rely on <code class="docutils literal notranslate"><span class="pre">Makefile</span></code> to perform the build &amp; install operations.</p></li>
 </ul>
 </div>
 <div class="section" id="makefile-configure">
 <h3><code class="docutils literal notranslate"><span class="pre">Makefile.configure</span></code><a class="headerlink" href="#makefile-configure" title="Permalink to this headline">¶</a></h3>
-<p>Does not apply to all projects.</p>
+<p><em>Does not apply to all projects.</em></p>
 <p>Enumerates and documents the user-configurable variables used by <code class="docutils literal notranslate"><span class="pre">Makefile</span></code>.</p>
-<p>This convention achieves the following:</p>
+<p><em>Rationale:</em></p>
 <ul class="simple">
 <li><p>It allows users and contributors to configure their build without editing <code class="docutils literal notranslate"><span class="pre">Makefile</span></code>.</p></li>
 </ul>
 </div>
 <div class="section" id="contributing-md">
 <h3><code class="docutils literal notranslate"><span class="pre">CONTRIBUTING.md</span></code><a class="headerlink" href="#contributing-md" title="Permalink to this headline">¶</a></h3>
-<p>Does not apply to all projects.</p>
+<p><em>Does not apply to all projects.</em></p>
 <p>Provides information to potential contributors:</p>
 <ul class="simple">
 <li><p>Where to file issues</p></li>
@@ -269,12 +301,17 @@
 <div class="section" id="license-md">
 <h3><code class="docutils literal notranslate"><span class="pre">LICENSE.md</span></code><a class="headerlink" href="#license-md" title="Permalink to this headline">¶</a></h3>
 <p>The project must specify a license and copyright.</p>
-<p>Note that <a class="reference external" href="https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository">GitHub has the ability</a> to recognize certain popular licenses and that they expose this as a search criteria.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository">GitHub has the ability to recognize certain popular licenses</a>. Projects which use one of those licenses must ensure GitHub recognizes their selection.</p></li>
+</ul>
 </div>
 <div class="section" id="readme-md">
 <h3><code class="docutils literal notranslate"><span class="pre">README.md</span></code><a class="headerlink" href="#readme-md" title="Permalink to this headline">¶</a></h3>
 <p>This must contain:</p>
 <ul class="simple">
+<li><p>The URL of the project’s main website or repository.</p></li>
+<li><p>A one-sentence description of the project.</p></li>
+<li><p>Citations/references for upstream components (as appropriate).</p></li>
 <li><p>Installation instructions.</p></li>
 <li><p>Concise examples and/or references to longer examples.</p></li>
 </ul>
@@ -301,14 +338,17 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="principles.html">Principles</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Project structure</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#project-documentation">Project documentation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#source-example-documentation">Source &amp; example documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#documentation">Documentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#project-documentation">Project documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#source-example-documentation">Source &amp; example documentation</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#continuous-integration">Continuous Integration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#dependencies">Dependencies</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#releases">Releases</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#versioning">Versioning</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#distribution">Distribution</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#documentation">Documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">Documentation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#announcements">Announcements</a></li>
 </ul>
 </li>
@@ -320,7 +360,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#examples"><code class="docutils literal notranslate"><span class="pre">examples/</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#theories"><code class="docutils literal notranslate"><span class="pre">theories/</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#coqproject"><code class="docutils literal notranslate"><span class="pre">_CoqProject</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#coq-myproject-opam"><code class="docutils literal notranslate"><span class="pre">coq-myproject.opam</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#coq-myproject-opam"><code class="docutils literal notranslate"><span class="pre">coq-{myproject}.opam</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#makefile"><code class="docutils literal notranslate"><span class="pre">Makefile</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#makefile-configure"><code class="docutils literal notranslate"><span class="pre">Makefile.configure</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#contributing-md"><code class="docutils literal notranslate"><span class="pre">CONTRIBUTING.md</span></code></a></li>
