@@ -23,3 +23,4 @@ Table of Contents
    extraction_ocaml
    extraction_haskell
    extraction_c
+   alectryon_examples

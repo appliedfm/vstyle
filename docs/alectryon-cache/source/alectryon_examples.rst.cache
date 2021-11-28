@@ -1,0 +1,172 @@
+{
+  "metadata": {
+    "cache_version": "2"
+  },
+  "&coq": {
+    "driver": [
+      "Coq+SerAPI",
+      "8.13.0+0.13.0"
+    ],
+    "metadata": {
+      "sertop_args": []
+    },
+    "chunks": [
+      "Lemma le_l : forall y x, S x <= y -> x <= y.\n  induction y; inversion 1; subst.\n  all: info_eauto.\nQed."
+    ],
+    "annotated": [
+      [
+        {
+          "_type": "sentence",
+          "contents": "Lemma le_l : forall y x, S x <= y -> x <= y.",
+          "messages": [],
+          "goals": [
+            {
+              "_type": "goal",
+              "name": null,
+              "conclusion": "forall y x : nat, S x <= y -> x <= y",
+              "hypotheses": []
+            }
+          ]
+        },
+        {
+          "_type": "text",
+          "contents": "\n  "
+        },
+        {
+          "_type": "sentence",
+          "contents": "induction y; inversion 1; subst.",
+          "messages": [],
+          "goals": [
+            {
+              "_type": "goal",
+              "name": null,
+              "conclusion": "y <= S y",
+              "hypotheses": [
+                {
+                  "_type": "hypothesis",
+                  "names": [
+                    "y"
+                  ],
+                  "body": null,
+                  "type": "nat"
+                },
+                {
+                  "_type": "hypothesis",
+                  "names": [
+                    "IHy"
+                  ],
+                  "body": null,
+                  "type": "forall x : nat, S x <= y -> x <= y"
+                },
+                {
+                  "_type": "hypothesis",
+                  "names": [
+                    "H"
+                  ],
+                  "body": null,
+                  "type": "S y <= S y"
+                }
+              ]
+            },
+            {
+              "_type": "goal",
+              "name": null,
+              "conclusion": "x <= S y",
+              "hypotheses": [
+                {
+                  "_type": "hypothesis",
+                  "names": [
+                    "y"
+                  ],
+                  "body": null,
+                  "type": "nat"
+                },
+                {
+                  "_type": "hypothesis",
+                  "names": [
+                    "IHy"
+                  ],
+                  "body": null,
+                  "type": "forall x : nat, S x <= y -> x <= y"
+                },
+                {
+                  "_type": "hypothesis",
+                  "names": [
+                    "x"
+                  ],
+                  "body": null,
+                  "type": "nat"
+                },
+                {
+                  "_type": "hypothesis",
+                  "names": [
+                    "H"
+                  ],
+                  "body": null,
+                  "type": "S x <= S y"
+                },
+                {
+                  "_type": "hypothesis",
+                  "names": [
+                    "H1"
+                  ],
+                  "body": null,
+                  "type": "S x <= y"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "_type": "text",
+          "contents": "\n  "
+        },
+        {
+          "_type": "sentence",
+          "contents": "all: info_eauto.",
+          "messages": [
+            {
+              "_type": "message",
+              "contents": "(* info eauto: *)"
+            },
+            {
+              "_type": "message",
+              "contents": "simple apply le_S."
+            },
+            {
+              "_type": "message",
+              "contents": " simple apply le_n."
+            },
+            {
+              "_type": "message",
+              "contents": "(* info eauto: *)"
+            },
+            {
+              "_type": "message",
+              "contents": "simple apply le_S."
+            },
+            {
+              "_type": "message",
+              "contents": " simple apply IHy."
+            },
+            {
+              "_type": "message",
+              "contents": "  exact H1."
+            }
+          ],
+          "goals": []
+        },
+        {
+          "_type": "text",
+          "contents": "\n"
+        },
+        {
+          "_type": "sentence",
+          "contents": "Qed.",
+          "messages": [],
+          "goals": []
+        }
+      ]
+    ]
+  }
+}
