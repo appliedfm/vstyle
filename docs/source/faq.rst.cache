@@ -11,7 +11,7 @@
       "sertop_args": []
     },
     "chunks": [
-      "Lemma le_l : forall y x, S x <= y -> x <= y.\n  induction y; inversion 1; subst.\n  all: info_eauto.\nQed."
+      "Lemma le_l : forall y x, S x <= y -> x <= y.\n  induction y; inversion 1; subst.\n  all: info_eauto.\nQed.\n"
     ],
     "annotated": [
       [
@@ -165,6 +165,10 @@
           "contents": "Qed.",
           "messages": [],
           "goals": []
+        },
+        {
+          "_type": "text",
+          "contents": "\n"
         }
       ]
     ]

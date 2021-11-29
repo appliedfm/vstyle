@@ -13,7 +13,7 @@ About
    :maxdepth: 3
 
    principles
-   alectryon_examples
+   faq
 
 
 Code Style
