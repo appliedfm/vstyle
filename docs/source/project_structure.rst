@@ -368,3 +368,8 @@ This must contain:
 * Citations/references for upstream components (as appropriate).
 * Installation instructions.
 * Concise examples and/or references to longer examples.
+
+It should also contain relevant badges:
+
+* `readthedocs status <https://docs.readthedocs.io/en/stable/badges.html>`_
+* See `shields.io <https://shields.io/>`_ for other examples.
