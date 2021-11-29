@@ -28,6 +28,18 @@ Requirements vary by project.
 * Use `coqdoc <https://coq.inria.fr/refman/using/tools/coqdoc.html>`_, `alectryon <https://github.com/cpitclaudel/alectryon/>`_, and/or `sphinx <https://www.sphinx-doc.org>`_.
 
 
+Repository documentation
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+If the project is hosted on GitHub:
+
+* Ensure the "About" panel is up-to-date
+   * Website
+   * Readme
+   * License
+   * Topics include ``coq``
+
+
 Dependencies
 ------------
 
