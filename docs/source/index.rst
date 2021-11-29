@@ -30,8 +30,8 @@ Code Style
    ltac
 
 
-Extraction
-----------
+Extraction Style
+----------------
 
 .. toctree::
    :maxdepth: 3

@@ -2,31 +2,37 @@ Scope management
 ================
 
 
-Imports and exports
--------------------
+``Require``, ``Import``, ``Export``
+-----------------------------------
 
 TODO
 
 
-Local and global
-----------------
+``local``, ``global``, ``export``
+---------------------------------
 
 TODO
 
 
-Modules
--------
+``Module``, ``Module Type``
+---------------------------
 
 TODO
 
 
-Sections
---------
+``Section``
+-----------
 
 TODO
 
 
-Notations
----------
+``Context``
+~~~~~~~~~~~
+
+TODO
+
+
+``Notation``
+------------
 
 TODO

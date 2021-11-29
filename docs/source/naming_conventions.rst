@@ -7,8 +7,26 @@ Files
 TODO
 
 
-Modules
--------
+Modules and module types
+------------------------
+
+TODO
+
+
+Definitions
+-----------
+
+TODO
+
+
+Lemmas
+------
+
+TODO
+
+
+Variables
+---------
 
 TODO
 

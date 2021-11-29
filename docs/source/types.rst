@@ -179,6 +179,12 @@ Inheritance and ``Coercion``
 TODO
 
 
+``Implicit Type``, ``Implicit Types``
+-------------------------------------
+
+TODO
+
+
 Boxed and unboxed representations
 ---------------------------------
 
