@@ -9,8 +9,25 @@ Our goal is to deliver a style guide that is useful to the community.
 We can't do that without your help!
 
 
-# Pull requests
+# Hacking on vstyle
 
+## Building
+
+Requires:
+* [Sphinx](https://www.sphinx-doc.org)
+* [Alectryon](https://github.com/cpitclaudel/alectryon)
+
+```console
+$ make -C docs html
+```
+
+
+## Useful references
+
+* [reStructuredText](https://www.sphinx-doc.org/en/master/usage/restructuredtext/index.html)
+
+
+# Pull requests
 
 ## Hosting, builds, & continuous integration
 
