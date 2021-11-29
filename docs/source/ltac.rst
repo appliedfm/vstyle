@@ -36,6 +36,12 @@ Defining custom tactics
 TODO
 
 
+``Tactic Notation``
+-------------------
+
+TODO
+
+
 Guidance on specific tactics
 ----------------------------
 

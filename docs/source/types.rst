@@ -5,6 +5,12 @@ Types
 Numeric types
 -------------
 
+``Number Notation``
+~~~~~~~~~~~~~~~~~~~
+
+TODO
+
+
 ``nat``, ``pos``, ``N``, ``Z``, ``Q``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -15,6 +21,39 @@ TODO
 ~~~~~~~~~
 
 * Import via ``From Coq Require Import Vectors.Vector.``
+
+
+String types
+------------
+
+``String Notation``
+~~~~~~~~~~~~~~~~~~~
+
+TODO
+
+
+``ascii`` (``" ... "``)
+~~~~~~~~~~~~~~~~~~~~~~~
+
+* Import via ``From Coq Require Import Strings.Ascii.``
+
+
+``string`` (``" ... "``)
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+* Import via ``From Coq Require Import Strings.String.``
+
+
+``byte``
+~~~~~~~~
+
+TODO
+
+
+``ByteVector``
+~~~~~~~~~~~~~~
+
+* Import via ``From Coq Require Import Strings.ByteVector.``
 
 
 Primitive objects
@@ -38,33 +77,6 @@ TODO
 TODO
 
 
-String types
-------------
-
-``ascii``
-~~~~~~~~~
-
-* Import via ``From Coq Require Import Strings.Ascii.``
-
-
-``string``
-~~~~~~~~~~
-
-* Import via ``From Coq Require Import Strings.String.``
-
-
-``byte``
-~~~~~~~~
-
-TODO
-
-
-``ByteVector``
-~~~~~~~~~~~~~~
-
-* Import via ``From Coq Require Import Strings.ByteVector.``
-
-
 Sum types
 ---------
 
@@ -86,8 +98,8 @@ TODO
 TODO
 
 
-``sum``, ``or`` (``\/``)
-~~~~~~~~~~~~~~~~~~~~~~~~
+``sum`` (``+``), ``or`` (``\/``)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 TODO
 
@@ -113,8 +125,8 @@ Product types
 TODO
 
 
-``prod``, ``sigma``, ``and`` (``/\``), ``ex``
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+``prod`` (``*``), ``sigma`` (``{ ... | ... }``), ``and`` (``/\``), ``ex`` (``exists ... , ...``)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 TODO
 
@@ -122,8 +134,8 @@ TODO
 Containers
 ----------
 
-``list``
-~~~~~~~~
+``list`` (``[ ... ]``)
+~~~~~~~~~~~~~~~~~~~~~~
 
 * Import via ``From Coq Require Import Lists.List.``
 

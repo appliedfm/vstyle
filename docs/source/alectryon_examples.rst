@@ -1,10 +1,27 @@
-Alectryon examples
-==================
+FAQ
+===
 
-This page is for testing and should be removed prior to release.
 
-Basic example
--------------
+Why adopt a style guide?
+------------------------
+
+TODO
+
+
+When is the right time to adopt a style guide?
+----------------------------------------------
+
+TODO
+
+
+Why adopt *this* style guide?
+-----------------------------
+
+TODO
+
+
+What is Alectryon?
+------------------
 
 .. coq::
 

@@ -71,8 +71,8 @@ Project style impacts several frequent use cases.
    * Upstream maintainer
 
 
-Desired outcome
----------------
+Desired outcomes
+----------------
 
 This style guide seeks to drive the following outcomes:
 

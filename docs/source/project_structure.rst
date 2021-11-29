@@ -144,7 +144,7 @@ Not every path is required; see below for additional guidance.
 
 *Does not apply to all projects.*
 
-Contains that cannot be found in opam, either because they generally do not have :command:`opam` packages or because a bleeding-edge version is required that has not been released yet.
+Contains dependencies that cannot be found in opam, either because they generally do not have :command:`opam` packages or because a bleeding-edge version is required that has not been released yet.
 
 * :command:`git` submodules are preferred.
 
@@ -183,6 +183,7 @@ The directory contains subdirectories whose names end in ``Ext``, as in :file:`e
 
 Contains non-Coq source code, such as OCaml, C, JavaScript, Haskell, etc.
 
+* If the project extracts Coq to OCaml, Haskell, C, or any other non-Coq language, and if the extracted results are committed to the repository, then they must be stored within this directory.
 * This directory might contain its own separate build system, documentation, etc, subject to the project's needs and appropriate separation of concerns.
 
 *Rationale:*
@@ -243,14 +244,13 @@ Applies only when the project documentation is hosted by `readthedocs.org <https
 
 This file:
 
-* Must bring ``dep``, ``ext``, ``theories``, and ``examples`` into the search path.
-* Must enumerate the files in ``ext`` and ``theories``. 
-   * It should also enumerate the files in ``examples`` unless there is a compelling reason not to.
+* Must bring the contents of ``dep``, ``ext``, and ``theories`` into the search path.
+* Must enumerate the files in ``ext`` and ``theories``.
 * Must not refer to any paths outside the project's directory tree.
 
-Some projects come in many different "variants" (such as compcert, which has a different variant for each target architecture). In this case:
+Some projects have several "variants" (such as compcert, which has a different variant for each target architecture). In this case:
 
-* There must be a "default" variant, represented by a default :file:`_CoqProject` file that satisfies the requirements above.
+* There must be a "default" variant and a corresponding default :file:`_CoqProject` file satisfying the requirements above.
 * The "non-default" variants each get their own file named :file:`_CoqProject-{variant}`.
 * Whenever possible, :file:`_CoqProject-{variant}` must comply with the same requirements above.
    * If :file:`_CoqProject-{variant}` must refer to paths outside the project's tree, then the following steps are recommended:
@@ -275,7 +275,7 @@ Some projects come in many different "variants" (such as compcert, which has a d
 * It should also provide build & install operations.
 * If it provides an install operation, the uninstall operation must be tested and working.
 
-For various reasons, some projects may require more than one :command:`opam` file. In this case:
+If the project has several variants:
 
 * There must be a "default" :file:`coq-{myproject}.opam` file that satisfies the requirements above.
 * The other files must be named :file:`coq-{myproject}-{variant}.opam`.
@@ -306,6 +306,7 @@ Responsible for building the project.
       * Build all of the dependencies in :file:`dep/`.
       * Build the rest of the project.
    * The following command must work in a newly-created :command:`opam` switch with no additional setups: :samp:`opam install --deps-only ./coq-{myproject}.opam && make`
+   * If the project has multiple variants, the following command must work in a newly-created :command:`opam` switch with no additional setups: :samp:`opam install --deps-only ./coq-{myproject}-{variant}.opam && make {myproject}-{variant}`
 
 *Rationale:*
 
