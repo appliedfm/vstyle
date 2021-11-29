@@ -105,6 +105,15 @@ Find & replace work as expected
 * Refactoring
 
 
+Separate things are separate; dependencies are easy to trace
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+* Browsing the code (in a browser)
+* Exploring undocumented features
+* Understanding the architecture
+* Refactoring
+
+
 Project is robust against changes to the Coq engine
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
