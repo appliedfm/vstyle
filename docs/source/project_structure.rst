@@ -50,7 +50,8 @@ Use :command:`git`.
 Continuous Integration
 ----------------------
 
-Use the `Coq Docker image <https://hub.docker.com/r/coqorg/coq/>`_ to `continuously test your build <https://github.com/coq-community/docker-coq/wiki/CI-setup>`_.
+* Use the `Coq Docker image <https://hub.docker.com/r/coqorg/coq/>`_ to `continuously test your build <https://github.com/coq-community/docker-coq/wiki/CI-setup>`_.
+* If the project publishes documentation on `readthedocs.org <https://readthedocs.org>`_, be sure to `enable builds from pull requests <https://docs.readthedocs.io/en/stable/pull-requests.html>`_. This will ensure PRs do not break the documentation.
 
 
 Releases
