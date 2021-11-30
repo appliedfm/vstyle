@@ -23,6 +23,15 @@ TODO
 * Import via ``From Coq Require Import Vectors.Vector.``
 
 
+``BigN``, ``BigZ``, ``BigQ``
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+*Note:* This is part of the `Bignums library <https://github.com/coq/bignums>`_.
+
+TODO
+
+
+
 String types
 ------------
 
@@ -239,7 +248,7 @@ Common classes & structures
 ``ExtLib.Structures.Monad``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-*Note:* This is part of the `ExtLib library <https://github.com/coq-community/coq-ext-lib/>`_.
+*Note:* This is part of the `ExtLib library <https://github.com/coq-community/coq-ext-lib>`_.
 
 * ``Monad``
 
