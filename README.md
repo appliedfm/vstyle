@@ -10,6 +10,7 @@ The latest version can be viewed at [vstyle.readthedocs.io](https://vstyle.readt
 
 Published by [applied.fm](https://applied.fm). Hosted by [readthedocs.org](https://readthedocs.org/projects/vstyle/).
 
+
 # Project status
 
 We are currently putting together a proposal for a community process to assemble content for the guide. This process will:
