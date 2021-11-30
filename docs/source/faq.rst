@@ -36,6 +36,18 @@ Why adopt *this* style guide?
 TODO
 
 
+How does this relate to *Requirements on the Use of Coq in the Context of Common Criteria Evaluations*?
+-------------------------------------------------------------------------------------------------------
+
+`Requirements on the Use of Coq in the Context of Common Criteria Evaluations <https://www.ssi.gouv.fr/uploads/2014/11/anssi-requirements-on-the-use-of-coq-in-the-context-of-common-criteria-evaluations-v1.0-en.pdf>`_ is a requirements document published by `ANSSI <https://www.ssi.gouv.fr>`_ and `INRIA <https://www.inria.fr>`_. While most projects are unlikely to be used in a Common Criteria Evaluation, the guidance offered by this document is valuable in other contexts as well.
+
+With respect to coding style, the document says:
+
+   There is no well-established coding style for Coq development. The present document does not attempt to fill this gap, but rather to identify and discourage known bad practices.
+
+This style guide attempts to fill this gap.
+
+
 What is Alectryon?
 ------------------
 
