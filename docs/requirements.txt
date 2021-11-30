@@ -1,1 +1,2 @@
 alectryon
+maisie-sphinx-theme
